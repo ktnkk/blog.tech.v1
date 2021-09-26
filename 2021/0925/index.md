@@ -109,6 +109,14 @@ node_modules
 % yarn develop -H 0.0.0.0
 ```
 
+[[n | エイリアス]]
+| `docker compose`や`docker exec`はエイリアスとして登録しておくと便利。
+|
+| ```shell:title=.zshrc
+| alias dc='docker compose'
+| alias de='docker exec'
+| ```
+
 ## 説明
 
 ### Dockerfile
@@ -131,7 +139,7 @@ EXPOSE 8000
 
 ### その他
 
-ちょっと気になって点としてDockerからGatsbyサーバを起動させる際に`yarn develop`（`gatsby develop`）のみだとlocalhostでアクセスした際に`ERR_EMPTY_RESPONSE`と表示されアクセスできないことだ。
+ちょっと気になった点としてDockerからGatsbyサーバを起動させる際に`yarn develop`（`gatsby develop`）のみだとlocalhostでアクセスした際に`ERR_EMPTY_RESPONSE`と表示されアクセスできないことだ。
 これはホストマシンとコンテナのlocalhostが異なることが原因で発生したエラーである。
 
 解決策としてサーバ起動時にホストを明示的に指定すれば解決する。
