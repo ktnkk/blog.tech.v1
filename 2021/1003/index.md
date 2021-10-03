@@ -78,7 +78,7 @@ Yarn (npm) とDockerfileの2つの依存関係を調べる設定になってい�
 
 ### package-ecosystem
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
 ```
@@ -89,7 +89,7 @@ updates:
 
 ### directory
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -101,7 +101,7 @@ updates:
 
 ### schedule
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -118,7 +118,7 @@ updates:
 
 ### target-branch
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -131,7 +131,7 @@ updates:
 
 ### allow
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -145,7 +145,7 @@ updates:
 
 ### assignees
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -158,7 +158,7 @@ updates:
 
 ### commit-message
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -174,7 +174,7 @@ updates:
 
 ### labels
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -190,7 +190,7 @@ updates:
 
 ### milestone
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -202,7 +202,7 @@ updates:
 
 ### open-pull-requests-limit
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -215,7 +215,7 @@ updates:
 
 ### pull-request-branch-name
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
@@ -229,7 +229,7 @@ updates:
 
 ### rebase-strategy
 
-```yaml
+```yaml:title=dependabot.yml
 updates:
   - package-ecosystem: "npm"
     <omitted>
