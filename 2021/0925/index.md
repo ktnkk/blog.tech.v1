@@ -63,7 +63,9 @@ FROM node:16.10.0-bullseye-slim
 WORKDIR /home/node/app
 RUN apt update -q \
     && apt upgrade -y \
-    && apt install -y build-essential
+    && apt install -y \
+       build-essential \
+       git
 RUN yarn global add gatsby-cli
 EXPOSE 8000
 ```
@@ -109,8 +111,8 @@ node_modules
 % yarn develop -H 0.0.0.0
 ```
 
-[[n | エイリアス]]
-| `docker compose`や`docker exec`はエイリアスとして登録しておくと便利。
+[[n | Tips]]
+| `docker compose`や`docker exec`のような長いコマンドはエイリアスとして登録しておくと便利。
 |
 | ```shell:title=.zshrc
 | alias dc='docker compose'
@@ -126,7 +128,9 @@ FROM node:16.10.0-bullseye-slim
 WORKDIR /home/node/app
 RUN apt update -q \
     && apt upgrade -y \
-    && apt install -y build-essential
+    && apt install -y \
+       build-essential \
+       git
 RUN yarn global add gatsby-cli
 EXPOSE 8000
 ```
@@ -136,6 +140,10 @@ EXPOSE 8000
 
 一応、`build-essential`を入れることで対応できている。
 今後ブログをアップデートする上で必要なパッケージも増えていくと思うのでその際は当記事に追記していく予定。
+
+追記
+
+初めにGatsbyのスターターを使うときはクローンするのでGitが必要。
 
 ### その他
 
@@ -166,11 +174,12 @@ $ yarn develop -H 0.0.0.0
 ```
 
 [[i | 参考]]
-| [docker上のアプリにlocalhostでアクセスしたらERR_EMPTY_RESPONSEが出る](https://qiita.com/amuyikam/items/01a8c16e3ddbcc734a46)
+| [docker上のアプリにlocalhostでアクセスしたらERR\_EMPTY\_RESPONSEが出る](https://qiita.com/amuyikam/items/01a8c16e3ddbcc734a46)
 
 ## さいごに
 
 ### 心配している点
 
-* node-sassだと動かないらしい
-* 画像をWebP化した時に必要なパッケージが出てきそう
+* ~~node-sassだと動かないらしい~~
+  * CSS in JSで運用していくから問題なさそう
+* 画像をWebP化した時に何かしら問題が出そうな気がする（sharp関連）
