@@ -25,8 +25,8 @@ published: true
 私の知識不足が大きな原因だが、そんなに拘りがないのであればDockerは使わない方が賢明かも。
 まだバグが多いし、けっこう仕様の変更がある。
 
-```shell:title=Zsh
-% system_profiler SPHardwareDataType
+```shell:title=Zsh {outputLines: 2-13, 15-18, 20-22, 24-25, 27-28, 30}{}
+system_profiler SPHardwareDataType
 Hardware:
 
     Hardware Overview:
@@ -39,22 +39,22 @@ Hardware:
       System Firmware Version: 6723.140.2
       OS Loader Version: 6723.140.2
 
-% sw_vers
+sw_vers
 ProductName:	macOS
 ProductVersion:	11.6
 BuildVersion:	20G165
 
-% docker -v
+docker -v
 Docker version 20.10.8, build 3967b7d
 
 # Dockerコンテナ内
-$ ruby -v
+ruby -v
 ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [aarch64-linux]
 
-$ node -v
+node -v
 v16.10.0
 
-$ shopify version
+shopify version
 2.6.3
 ```
 
@@ -73,7 +73,7 @@ RUN apt update -q \
     && printf "[analytics]\nenabled = false\n" > ~/.config/shopify/config \
     && curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - \
     && sudo apt install -y nodejs \
-       vim \
+       vim
 
 WORKDIR /usr/src/app
 ```
@@ -104,24 +104,24 @@ services:
 ポートフォワーディングに関しては`3456`は認証時に使用、`9292`はプレビューを見るときに使用するので開けておく。
 今回はテーマしか編集しないけどRailsやNode.jsを使ったアプリ開発をするのであれば対応したポートを開ける必要がある。
 
-```shell:title=Zsh
-% docker compose up --build -d
+```shell:title=Zsh {outputLines: 2}{}
+docker compose up --build -d
 
-% docker exec -it shopify /bin/bash
+docker exec -it shopify /bin/bash
 ```
 
 これでコンテナを起動し、中に入ることができた。
 
-```shell:title=Bash
-$ shopify login --store ktnkk.myshopify.com
+```shell:title=Bash {outputLines: 2-5, 7-8, 10-12}{}
+shopify login --store ktnkk.myshopify.com
 Please open this URL in your browser:
 https://accounts.shopify.com/oauth/authorize?client_id=fbdb2649-e327-4907-8f67-908d24cfd7e3&scope=openid+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fshop.admin.graphql+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fshop.admin.themes+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fpartners.collaborator-relationships.readonly+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fshop.storefront-renderer.devtools+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fpartners.app.cli.access&redirect_uri=http%3A%2F%2F127.0.0.1%3A3456&state=31fdcb5f41373a5b88770a1a7fa9553d5a9a001ad63076c7cfa98aefae2f&response_type=code&code_challenge=Qow2mbHXW6S9uAip2FHb0VcwOKBm9DPQ0VXlT8K94lE&code_challenge_method=S256
 Logged into store ktnkk.myshopify.com in partner organization ktnkk
 
-$ shopify whoami
+shopify whoami
 Logged into store ktnkk.myshopify.com in partner organization ktnkk
 
-$ shopify theme init Dawn
+shopify theme init Dawn
 ┏━━ Cloning https://github.com/Shopify/dawn.git into Dawn… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃                                                                                                                                                                                                                                         100%
 ┗━━ ✓ Cloned into Dawn ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ (3.28s) ━━
@@ -134,10 +134,10 @@ URLが発行されるのでブラウザからアクセスすればOK。
 
 テーマは最もベーシックなDawnを入れてみた。以下のような構造をしている。
 
-```shell:title=Bash
-$ apt install tree
+```shell:title=Bash {outputLines: 2, 4-20}{}
+apt install tree
 
-$ tree -L 2
+tree -L 2
 .
 ├── Dawn
 │   ├── LICENSE.md
@@ -159,12 +159,12 @@ $ tree -L 2
 
 後から判明することであるが、GitHubを使ってテーマを管理するのであればプロジェクトルートにダウンロードしたディレクトリを配置しなければならない（上記の例では`Dawn`ディレクトリ内に配置されてしまっている）。
 
-```shell:title=Bash
-$ shopify theme serve
+```shell:title=Bash {outputLines: 2-4, 6-8}{}
+shopify theme serve
 ✗ You are not authorized to edit themes on ktnkk.myshopify.com.
 Make sure you are a user of that store, and allowed to edit themes.
 
-$ shopify login
+shopify login
 Please open this URL in your browser:
 https://accounts.shopify.com/oauth/authorize?client_id=fbdb2649-e327-4907-8f67-908d24cfd7e3&scope=openid+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fshop.admin.graphql+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fshop.admin.themes+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fpartners.collaborator-relationships.readonly+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fshop.storefront-renderer.devtools+https%3A%2F%2Fapi.shopify.com%2Fauth%2Fpartners.app.cli.access&redirect_uri=http%3A%2F%2F127.0.0.1%3A3456&state=a1d24c729e5ae816a7aa085b32a669717b375b25137caf18bcfe950b494d&response_type=code&code_challenge=hQNSpzIq0lehHkRYvW3nfEdLeflSbCGDkPuX3gh2bmQ&code_challenge_method=S256
 Logged into store ktnkk.myshopify.com in partner organization ktnkk
@@ -172,8 +172,8 @@ Logged into store ktnkk.myshopify.com in partner organization ktnkk
 
 開発サーバを立ち上げてみる。しかし、失敗。さっき認証したはずなのに何故か認証されていないらしい。仕方なくもう一度ログイン（今度はストア名は要らない）するとこの問題は解決した。
 
-```shell:title=Bash
-$ shopify theme serve
+```shell:title=Bash {outputLines: 2-18}{}
+shopify theme serve
 ┏━━ Viewing theme… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃ * Syncing theme #127861457150 on ktnkk.myshopify.com
 ┃                                                                                                                                                                                                                                         100%
@@ -207,10 +207,10 @@ Gatsbyであれば`gatsby develop -H 0.0.0.0`、Railsであれば`rails server -
 遠回りだが今回インストールしたGem（shopify-cli）を直接書き換えるしかない。
 以下がそのdiff。
 
-```shell:title=Bash
-$ cd /usr/local/bundle/gems/shopify-cli-2.6.3/lib/shopify_cli/theme/dev_server
+```shell:title=Bash {outputLines: 2}{}
+cd /usr/local/bundle/gems/shopify-cli-2.6.3/lib/shopify_cli/theme/dev_server
 
-$ vi web_server.rb
+vi web_server.rb
 ```
 
 Webサーバの設定をしている[Rubyファイル](https://github.com/Shopify/shopify-cli/blob/0701e2820b74fe58e9df6ebcb322fb0f63bf39bc/lib/shopify_cli/theme/dev_server/web_server.rb#L31)を修正。
@@ -234,10 +234,10 @@ class WebServer < ::WEBrick::HTTPServlet::AbstractServlet
 
 これだけではプレビューを変更した時に投げられるHTTPリクエストでトークンに関するエラーが出るのでWEBrick（RubyのWebサーバライブラリ）の[設定](https://github.com/Shopify/shopify-cli/blob/6e8521863045721a6714660b6784378fd8e907a8/vendor/deps/webrick/lib/webrick/httprequest.rb#L601)を弄る。
 
-```shell:title=Bash
-$ cd /usr/local/bundle/gems/shopify-cli-2.6.3/vendor/deps/webrick/lib/webrick
+```shell:title=Bash {outputLines: 2}{}
+cd /usr/local/bundle/gems/shopify-cli-2.6.3/vendor/deps/webrick/lib/webrick
 
-$ vi httprequest.rb
+vi httprequest.rb
 ```
 
 ```diff:title=httprequest.rb

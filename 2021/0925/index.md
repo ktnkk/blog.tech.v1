@@ -20,8 +20,8 @@ published: true
 
 ## 開発環境
 
-```shell:title=Zsh
-% system_profiler SPHardwareDataType
+```shell:title=Zsh {outputLines: 2-13, 15-18, 20-22, 24-26, 28-29, 31}{}
+system_profiler SPHardwareDataType
 Hardware:
 
     Hardware Overview:
@@ -34,23 +34,23 @@ Hardware:
       System Firmware Version: 6723.140.2
       OS Loader Version: 6723.140.2
 
-% sw_vers
+sw_vers
 ProductName:	macOS
 ProductVersion:	11.6
 BuildVersion:	20G165
 
-% docker -v
+docker -v
 Docker version 20.10.8, build 3967b7d
 
 # Dockerコンテナ内
-$ gatsby -v
+gatsby -v
 Gatsby CLI version: 3.14.0
 Gatsby version: 3.13.0
 
-$ node -v
+node -v
 v16.10.0
 
-$ yarn -v
+yarn -v
 1.22.5
 ```
 
@@ -94,27 +94,27 @@ node_modules
 
 ### コマンド
 
-```shell:title=Zsh
+```shell:title=Zsh {outputLines: 1, 3-4, 6-7, 9-10, 12-13}{}
 # Dockerfileのイメージを構築
-% docker compose build
+docker compose build
 
 # 構築したイメージからコンテナの構築、起動（バックグラウンドで）
-% docker compose up -d
+docker compose up -d
 
 # コンテナに入る
-% docker exec -it {コンテナ名} /bin/bash
+docker exec -it {コンテナ名} /bin/bash
 
 # package.jsonに記載されたモジュールをインストール
-% yarn
+yarn
 
 # 開発用サーバの起動
-% yarn develop -H 0.0.0.0
+yarn develop -H 0.0.0.0
 ```
 
 [[n | Tips]]
 | `docker compose`や`docker exec`のような長いコマンドはエイリアスとして登録しておくと便利。
 |
-| ```shell:title=.zshrc
+| ```text:title=.zshrc
 | alias dc='docker compose'
 | alias de='docker exec'
 | ```
@@ -152,7 +152,7 @@ EXPOSE 8000
 解決策としてサーバ起動時にホストを明示的に指定すれば解決する。
 
 ```shell:title=Bash
-$ yarn develop -H 0.0.0.0
+yarn develop -H 0.0.0.0
 ```
 
 `0.0.0.0`でサーバを建てると、そのホストの全てのインターフェースでLISTENする。
