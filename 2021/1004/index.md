@@ -1,5 +1,5 @@
 ---
-title: "[WIP] リアルな本を捲るアニメーションを実装する"
+title: "[WIP] 本を捲るアニメーションを実装する"
 date: "2021-10-04T15:36:44.284Z"
 category: "t"
 description: ""
@@ -17,8 +17,8 @@ published: true
 
 ## 開発環境
 
-```shell:title=Zsh
-% system_profiler SPHardwareDataType
+```shell:title=Zsh {outputLines: 2-13, 15-18, 20-22, 24-26, 28-29, 31}{}
+system_profiler SPHardwareDataType
 Hardware:
 
     Hardware Overview:
@@ -31,23 +31,23 @@ Hardware:
       System Firmware Version: 6723.140.2
       OS Loader Version: 6723.140.2
 
-% sw_vers
+sw_vers
 ProductName:	macOS
 ProductVersion:	11.6
 BuildVersion:	20G165
 
-% docker -v
+docker -v
 Docker version 20.10.8, build 3967b7d
 
 # Dockerコンテナ内
-$ gatsby -v
+gatsby -v
 Gatsby CLI version: 3.14.0
 Gatsby version: 3.14.1
 
-$ node -v
+node -v
 v16.10.0
 
-$ yarn -v
+yarn -v
 1.22.5
 ```
 
@@ -92,22 +92,22 @@ node_modules
 
 プロジェクトルートに移動後、下記のコマンドを実行。
 
-```shell:title=Zsh
-% docker compose up --build -d
+```shell:title=Zsh {outputLines: 2}{}
+docker compose up --build -d
 
-% docker exec -it book /bin/bash
+docker exec -it book /bin/bash
 ```
 
 下記はコンテナ内。
 
-```shell:title=Bash
-$ gatsby new book https://github.com/gatsbyjs/gatsby-starter-default
+```shell:title=Bash {outputLines: 2, 4, 6}{}
+gatsby new book https://github.com/gatsbyjs/gatsby-starter-default
 
-$ mv book/* book/.[^\.]* . && rm -rf package-lock.json book
+mv book/* book/.[^\.]* . && rm -rf package-lock.json book
 
-$ yarn
+yarn
 
-$ yarn develop -H 0.0.0.0
+yarn develop -H 0.0.0.0
 ```
 
 すぐに開発に取り掛かれるようにスターターを使用する。
@@ -130,10 +130,10 @@ $ yarn develop -H 0.0.0.0
 
 早速、インストールしてみる。
 
-```shell:title=Bash
-$ yarn add react-pageflip
+```shell:title=Bash {outputLines: 2, 4}{}
+yarn add react-pageflip
 
-$ yarn info react-pageflip version
+yarn info react-pageflip version
 2.0.3
 ```
 
@@ -141,16 +141,16 @@ $ yarn info react-pageflip version
 
 ついでに後でスタイリングする際に使うstyled-componentsもインストールする（任意）。
 
-```shell:title=Bash
-$ yarn add styled-components gatsby-plugin-styled-components babel-plugin-styled-components
+```shell:title=Bash {outputLines: 2, 4-5, 7-8, 10}{}
+yarn add styled-components gatsby-plugin-styled-components babel-plugin-styled-components
 
-$ yarn info styled-components version
+yarn info styled-components version
 5.3.1
 
-$ yarn info gatsby-plugin-styled-components version
+yarn info gatsby-plugin-styled-components version
 4.14.0
 
-$ yarn info babel-plugin-styled-components version
+yarn info babel-plugin-styled-components version
 1.13.2
 ```
 
