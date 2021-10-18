@@ -93,6 +93,26 @@ published: true
 
 ***
 
+## Blockquotes
+
+```markdown:title=Markdown
+> Work as intensely as you play and play as intensely as you work.
+> For true hackers, the boundaries between "play", "work", "science" and "art" all tend to disappear, or to merge into a high-level creative playfulness.
+> Also, don't be content with a narrow range of skills.
+> Though most hackers self-describe as programmers, they are very likely to be more than competent in several related skills — system administration, web design, and PC hardware troubleshooting are common ones.
+> A hacker who's a system administrator, on the other hand, is likely to be quite skilled at script programming and web design.
+> Hackers don't do things by halves; if they invest in a skill at all, they tend to get very good at it.
+```
+
+> Work as intensely as you play and play as intensely as you work.
+> For true hackers, the boundaries between "play", "work", "science" and "art" all tend to disappear, or to merge into a high-level creative playfulness.
+> Also, don't be content with a narrow range of skills.
+> Though most hackers self-describe as programmers, they are very likely to be more than competent in several related skills — system administration, web design, and PC hardware troubleshooting are common ones.
+> A hacker who's a system administrator, on the other hand, is likely to be quite skilled at script programming and web design.
+> Hackers don't do things by halves; if they invest in a skill at all, they tend to get very good at it.
+
+***
+
 ## Table
 
 ```markdown:title=Markdown
