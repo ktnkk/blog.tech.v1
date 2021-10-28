@@ -502,6 +502,10 @@ const pathInclude =
     : catLink === "/"
     ? path === `/${currentPage}/`
     : path === `${catLink}/${currentPage}/`;
+
+// ...
+
+<CategoryItem className={pathInclude && "active"}>
 ```
 
 このように書くことで解決した。もし何かactiveにすることでスタイルを変えている場合は対応する必要があるかもしれない。
