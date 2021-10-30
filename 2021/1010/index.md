@@ -16,11 +16,11 @@ published: true
 コントリビュータお待ちしております。
 
 [[i | GitHubリポジトリ]]
-| https://github.com/ktnkk/blog
+| <https://github.com/ktnkk/blog>
 
 ## 前回の反省
 
-![前のブログ](./01.jpg)
+![前のブログ](01.jpg)
 
 [WordPress](https://github.com/WordPress/WordPress)は素晴らしいCMSであり、批判をするつもりは更々ないけど個人的には下記の項目がとてもストレスであった。
 
@@ -39,7 +39,7 @@ WordPressは成熟しすぎた。「[UNIXという考え方](https://www.amazon.
 
 ## 技術スタック
 
-![ブログの執筆環境](./02.jpg)
+![ブログの執筆環境](02.jpg)
 
 前回の反省を生かして以下の項目を満たす技術選定を行った。
 
@@ -141,8 +141,9 @@ Reactのスタイリング方法に関しては様々な論争の元になるが
 * [Storybook](https://github.com/storybookjs/storybook)の導入（[#107](https://github.com/ktnkk/blog/issues/107)）
 * Netlifyへのデプロイ時に発生するビルドにキャッシュを使用（[#108](https://github.com/ktnkk/blog/issues/108)）
 * [Jest](https://github.com/facebook/jest)を使ったテスト（[#109](https://github.com/ktnkk/blog/issues/109)）
-* Intellj IDEAでDocker内のnodeを参照できない問題の解決（[#110](https://github.com/ktnkk/blog/issues/110)）
-* 下書き機能の追加（[#116](https://github.com/ktnkk/blog/issues/116)）
+* IntelliJ IDEAでDocker内のnodeを参照できない問題の解決（[#110](https://github.com/ktnkk/blog/issues/110)）
+* ~~下書き機能の追加~~（[#116](https://github.com/ktnkk/blog/issues/116)） -> [記事](/7976845)
+* ~~ページネーションの追加~~（[#159](https://github.com/ktnkk/blog/issues/159)） -> [記事](/8443869)
 
 ### 検討中の機能
 
@@ -157,7 +158,7 @@ Reactのスタイリング方法に関しては様々な論争の元になるが
 
 ## さいごに
 
-自前のIDEでIdevVimを使って執筆できるようになったので、かなりDXは上昇した。寧ろ記事を書くだけならVimでも良いかもしれない。
+自前のIDEでIdeaVimを使って執筆できるようになったので、かなりDXは上昇した。寧ろ記事を書くだけならVimでも良いかもしれない。
 
 今回実装した機能とこれから実装する機能は実際の業務でも使えるものなので一石二鳥という感じがする。
 業務で習得した技術もこちらに応用させやすいから良い循環になりそう。

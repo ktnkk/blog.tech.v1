@@ -78,7 +78,8 @@ published: true
 **strong importance, seriousness, or urgency**
 ~~text that has been deleted from a document~~
 `short fragment of computer code`
-[This is my homepage](https://ktnkk.com)
+[This is my homepage](https://ktnkk.com/)
+<https://ktnkk.com/>
 ```
 
 *stress emphasis*
@@ -89,7 +90,9 @@ published: true
 
 `short fragment of computer code`
 
-[This is my homepage](https://ktnkk.com)
+[This is my homepage](https://ktnkk.com/)
+
+<https://ktnkk.com/>
 
 ***
 
@@ -132,26 +135,26 @@ published: true
 ## Image
 
 ```markdown:title=Markdown
-![🐿](./01.jpg)
+![🐿](01.jpg)
 ```
 
-![🐿](./01.jpg)
+![🐿](01.jpg)
 
 ### Resize
 
 ```markdown:title=Markdown
 [[imgM]]
-| ![🐿](./01.jpg)
+| ![🐿](01.jpg)
 
 [[imgS]]
-| ![🐿](./01.jpg)
+| ![🐿](01.jpg)
 ```
 
 [[imgM]]
-| ![🐿](./01.jpg)
+| ![🐿](01.jpg)
 
 [[imgS]]
-| ![🐿](./01.jpg)
+| ![🐿](01.jpg)
 
 ***
 
