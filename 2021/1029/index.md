@@ -139,3 +139,7 @@ export const pageQuery = graphql`
 これでこまめにコミットできるから間違ってファイルを消すことに怯えなくて済む。
 今のところ下書きの記事自体が少ないから迷うことはないが、これから増えることが予想される。
 余裕があれば下書き一覧ページの作成やラベルの貼り付けなどして下書き記事の管理をできるようにするかもしれない。
+
+[[i | 関連リンク]]
+| * [Issue](https://github.com/ktnkk/blog/issues/116)
+| * [Pull request](https://github.com/ktnkk/blog/pull/174)
