@@ -11,18 +11,18 @@ published: true
 ## プロローグ
 
 今の時代はメルカリやヤフオクなど誰でも簡単に要らなくなったものを適正な価格で売買できる。
-しかし、よく考えてみると手数料も高いし、何だか損してるなと思うのは贅沢な悩みだろうか。
+しかし、よく考えてみると手数料も高いし、何だか損してるなと感じるのは贅沢な悩みだろうか。
 
-できることなら自分のショップを独立した形で持てれば色々と捗るだろうなと思ったので、その分野では最も勢いのあるShopifyでストアを作ってみようと思う。
-あわよくば、それで仕事の幅を広げられたらなとも思う。
+できることなら自分のショップを独立した形で持てれば色々と捗るだろうから、その分野ではもっとも勢いのあるShopifyでストアを作ってみることにした。
+あわよくば、それで仕事の幅を広げられたら良いな。
 
 まずはお店の外観となるテーマの編集をしていきたい。[Shopify CLI](https://github.com/Shopify/shopify-cli)という便利ツールを使っていく。
 正直なところ、そんなに売るものもないから形だけでもしっかりしたものを作れれば良いな。
 
 ## 開発環境
 
-今回もDockerを使って開発環境を整えていくが最後の最後に詰まったということは初めに書いておきたい。
-私の知識不足が大きな原因だが、そんなに拘りがないのであればDockerは使わない方が賢明かも。
+今回もDockerを使って開発環境を整えていく。ただ、最後の最後に詰まったということは初めに書いておきたい。
+私の知識不足が大きな原因だが、そんなに拘りがないのであればDockerは使わないほうが賢明である。
 まだバグが多いし、けっこう仕様の変更がある。
 
 ```shell:title=Zsh {outputLines: 2-13, 15-18, 20-22, 24-25, 27-28, 30}{}
@@ -78,9 +78,10 @@ RUN apt update -q \
 WORKDIR /usr/src/app
 ```
 
-8行目の`printf "[analytics]\nenabled = false\n" > ~/.config/shopify/config`はshopify-cliのコマンド`shopify config analytics --disable`と同じ意味である。
+8行目の`printf "[analytics]\nenabled = false\n" > ~/.config/shopify/config`は何を意味するのか。
+それはshopify-cliのコマンド`shopify config analytics --disable`と同じことである。
 
-これを書くことで匿名の使用状況レポートを送信されないようにする。どんなに匿名と言っても信用できないからね。
+これを書くことで匿名の使用状況レポートを送信されないようにする。どんなに匿名と言っても信用できない。
 
 後からファイル編集をする必要があるので`vim`も入れておく。
 
@@ -127,12 +128,12 @@ shopify theme init Dawn
 ┗━━ ✓ Cloned into Dawn ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ (3.28s) ━━
 ```
 
-早速ストア名を使ってOAuth認証を行う。
+早速ストア名を使ってOAuth認証する。
 URLが発行されるのでブラウザからアクセスすればOK。
 
 `shopify whoami`でログインしているパートナー組織、またはスタッフメンバーとしてログインしているストアを表示する。
 
-テーマは最もベーシックなDawnを入れてみた。以下のような構造をしている。
+テーマはもっともベーシックなDawnを入れてみた。以下のような構造をしている。
 
 ```shell:title=Bash {outputLines: 2, 4-20}{}
 apt install tree
@@ -157,7 +158,7 @@ tree -L 2
 └── yarn.lock
 ```
 
-後から判明することであるが、GitHubを使ってテーマを管理するのであればプロジェクトルートにダウンロードしたディレクトリを配置しなければならない（上記の例では`Dawn`ディレクトリ内に配置されてしまっている）。
+GitHubを使ってテーマを管理するのであればプロジェクトルートにダウンロードしたディレクトリを配置しなければならない（上記の例では`Dawn`ディレクトリ内に配置されてしまっている）。
 
 ```shell:title=Bash {outputLines: 2-4, 6-8}{}
 shopify theme serve
@@ -170,7 +171,7 @@ https://accounts.shopify.com/oauth/authorize?client_id=fbdb2649-e327-4907-8f67-9
 Logged into store ktnkk.myshopify.com in partner organization ktnkk
 ```
 
-開発サーバを立ち上げてみる。しかし、失敗。さっき認証したはずなのに何故か認証されていないらしい。仕方なくもう一度ログイン（今度はストア名は要らない）するとこの問題は解決した。
+開発サーバを立ち上げてみる。しかし、失敗。さっき認証したはずなのに何故か認証されていないらしい。仕方なくもう一度ログイン（ストア名は要らない）するとこの問題は解決した。
 
 ```shell:title=Bash {outputLines: 2-18}{}
 shopify theme serve
@@ -232,7 +233,7 @@ class WebServer < ::WEBrick::HTTPServlet::AbstractServlet
     end
 ```
 
-これだけではプレビューを変更した時に投げられるHTTPリクエストでトークンに関するエラーが出るのでWEBrick（RubyのWebサーバライブラリ）の[設定](https://github.com/Shopify/shopify-cli/blob/6e8521863045721a6714660b6784378fd8e907a8/vendor/deps/webrick/lib/webrick/httprequest.rb#L601)を弄る。
+これだけではプレビューを変更したときに投げられるHTTPリクエストでトークンに関するエラーが出るのでWEBrick（RubyのWebサーバライブラリ）の[設定](https://github.com/Shopify/shopify-cli/blob/6e8521863045721a6714660b6784378fd8e907a8/vendor/deps/webrick/lib/webrick/httprequest.rb#L601)を弄る。
 
 ```shell:title=Bash {outputLines: 2}{}
 cd /usr/local/bundle/gems/shopify-cli-2.6.3/vendor/deps/webrick/lib/webrick
