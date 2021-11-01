@@ -12,8 +12,7 @@ published: true
 しかし、様々な面倒に直面したのとDXが良くない（書く気にならない）ので勉強も兼ねて1からブログを作っていくことにした。
 隙間時間を見つけてはコードを試すのを繰り返し、大体4週間ほどで公開できる段階まで来た。
 
-以下リンクが管理しているリポジトリ。Publicなのでどんどんプルリクを出して頂けるとありがたいです。
-コントリビュータお待ちしております。
+以下リンクが管理しているリポジトリ。Publicなのでどんどんプルリクを出して頂けるとありがたい。
 
 [[i | GitHubリポジトリ]]
 | <https://github.com/ktnkk/blog>
@@ -41,7 +40,7 @@ WordPressは成熟しすぎた。「[UNIXという考え方](https://www.amazon.
 
 ![ブログの執筆環境](02.jpg)
 
-前回の反省を生かして以下の項目を満たす技術選定を行った。
+前回の反省を生かして以下の項目を満たす技術選定をした。
 
 * **記事執筆**
     * オフライン対応
@@ -54,11 +53,10 @@ WordPressは成熟しすぎた。「[UNIXという考え方](https://www.amazon.
     * SPA（Single Page Application）
     * SSG（Static Site Generator）
     * 無料
-    * 仕事に活かせるかどうか（モダンな技術）
+    * 仕事に活かせるか（モダンな技術）
     * デプロイの容易さ
 
 今回選んだ技術に関してまだ完全に理解できていない部分も多いが、何度落ちても問題ない個人ブログであるから積極的に最新技術を試すサンドボックスとして活用していきたい。
-ブログに接続できなければ何かしら試して失敗しているなと暖かい目で見て頂ければ幸いです。
 
 ### ドメイン -> Njalla
 
@@ -84,13 +82,13 @@ Njallaの場合はドメインの所有権がNjalla自身にあり、サービ�
 ### ホスティング -> Netlify
 
 フロントエンドのデプロイ先としては[Netlify](https://www.netlify.com)を選択した。
-GitHubと連携させることでわずか5分足らずで全世界にブログを公開することができた。
+GitHubと連携させることにより、わずか5分足らずで全世界にブログを公開できた。
 
 このブログの規模であれば無料枠でやっていけるので経済的にも助かっている。結局、ブログの運営費はドメイン代の年間$15だけである。
 WordPress時代はConoHa VPSに年間1.5万円ほど納めていたから節約になった。
 
 他にもVercelやFirebase Hostingなど似たようなサービスがあるが、どれも無料で試せるのでスピードの比較をしてみたい。
-Netlifyは日本にCDNのエッジがないのがネックかな。今のところ不便は感じていないが。
+Netlifyは日本にCDNのエッジを持っていないのはちょっと気になるポイント。今のところ不便は感じていないが。
 
 ### その他のこだわりポイント
 
@@ -102,14 +100,14 @@ Netlifyは日本にCDNのエッジがないのがネックかな。今のとこ�
 
 #### styled-components
 
-Reactのスタイリング方法に関しては様々な論争の元になるが、当ブログではCSS in JSの雄である[styled-components](https://github.com/styled-components/styled-components)を使用している。
-今後、Atomic designと関数型の概念を取り入れていきたいので最も相性が良いCSS in JSを選択した。
+Reactのスタイリング方法に関しては様々な論争の元になる。当ブログではCSS in JSの雄である[styled-components](https://github.com/styled-components/styled-components)を使用している。
+今後、Atomic designと関数型の概念を取り入れていきたいのでもっとも相性が良いCSS-in-JSを選択した。
 
 ただし、レンダリングコストの問題もあり、styled-componentsより後発の[emotion](https://github.com/emotion-js/emotion)か[linaria](https://github.com/callstack/linaria)の導入を検討している。
 
 #### カテゴリのサブモジュール化
 
-当ブログの記事は`blog/content/blog/*`に存在するが各カテゴリ毎にサブモジュールを作成している。
+当ブログの記事は各カテゴリごとにサブモジュールを作成している。
 
 * [fashion](https://github.com/ktnkk/blog.fashion)
 * [life](https://github.com/ktnkk/blog.life)
@@ -123,8 +121,8 @@ Reactのスタイリング方法に関しては様々な論争の元になるが
 
 ## 開発ロードマップ
 
-マーク・サッカーバーグが言うように完璧を目指すよりもまずは終わらせることが先決であるから未完成だけどリリースした。
-時間が足りずに後回しにしている機能も含めて洗いざらい吐き出しておく。
+完璧を目指すよりもまずは終わらせることが先決であるから未完成だけどリリースした。
+時間が足りず、後回しにしている機能も含めて洗いざらい吐き出しておく。
 
 ### 必ず欲しい機能
 
@@ -139,16 +137,16 @@ Reactのスタイリング方法に関しては様々な論争の元になるが
 * [Husky](https://github.com/typicode/husky)でコミット前検証（[#105](https://github.com/ktnkk/blog/issues/105)）
 * Atomic designの導入（[#106](https://github.com/ktnkk/blog/issues/106)）
 * [Storybook](https://github.com/storybookjs/storybook)の導入（[#107](https://github.com/ktnkk/blog/issues/107)）
-* Netlifyへのデプロイ時に発生するビルドにキャッシュを使用（[#108](https://github.com/ktnkk/blog/issues/108)）
+* Netlifyへのデプロイ時にキャッシュを使用（[#108](https://github.com/ktnkk/blog/issues/108)）
 * [Jest](https://github.com/facebook/jest)を使ったテスト（[#109](https://github.com/ktnkk/blog/issues/109)）
 * IntelliJ IDEAでDocker内のnodeを参照できない問題の解決（[#110](https://github.com/ktnkk/blog/issues/110)）
-* ~~下書き機能の追加~~（[#116](https://github.com/ktnkk/blog/issues/116)） -> [記事](/7976845)
-* ~~ページネーションの追加~~（[#159](https://github.com/ktnkk/blog/issues/159)） -> [記事](/8443869)
+* ~~下書き機能の追加~~（[#116](https://github.com/ktnkk/blog/issues/116)）-> [記事](/7976845)
+* ~~ページネーションの追加~~（[#159](https://github.com/ktnkk/blog/issues/159)）-> [記事](/8443869)
 
 ### 検討中の機能
 
 * mdのmdx化（[#111](https://github.com/ktnkk/blog/issues/111)）
-* styled-componentsをlinariaに置き換える（[#112](https://github.com/ktnkk/blog/issues/112)）
+* styled-componentsをLinariaに置き換える（[#112](https://github.com/ktnkk/blog/issues/112)）
 * GitHubのIssueまたはDiscussionを使ったコメント機能の追加（[#113](https://github.com/ktnkk/blog/issues/113)）
 * GitHub ActionsとGitHub PackagesでDocker imageの配布（[#114](https://github.com/ktnkk/blog/issues/114)）
 * 記事の履歴を参照できるようにする（[#115](https://github.com/ktnkk/blog/issues/115)）
@@ -158,9 +156,9 @@ Reactのスタイリング方法に関しては様々な論争の元になるが
 
 ## さいごに
 
-自前のIDEでIdeaVimを使って執筆できるようになったので、かなりDXは上昇した。寧ろ記事を書くだけならVimでも良いかもしれない。
+自前のIDEでIdeaVimを使って執筆できるようになったので、かなりDXは上昇した。むしろ記事を書くだけならVimでも良いかな。
 
 今回実装した機能とこれから実装する機能は実際の業務でも使えるものなので一石二鳥という感じがする。
 業務で習得した技術もこちらに応用させやすいから良い循環になりそう。
 
-そもそもなぜブログを書くのかについてはまた別の記事に纏めようと思う。
+そもそもなぜブログを書くのかについてはまた別の記事に纏める予定。
