@@ -17,7 +17,7 @@ published: true
 しかし、最近はTypeScriptを書く機会が徐々に増えてきて入力補完やリンターに頼りたくなってきた。
 現在はIntelliJ IDEAというIDEを使用しているのだが、なぜかインタプリタをDockerに接続できない。
 
-一応、[公式ドキュメント](https://www.jetbrains.com/help/idea/node-with-docker.html)も読んだ。
+もちろん、[公式ドキュメント](https://www.jetbrains.com/help/idea/node-with-docker.html)も読んだ。
 だけど、上手くいかないし、あまり環境構築に時間を掛けたくないので妥協してローカルでバージョン管理をすることにした。
 
 今回導入したのはNode.jsを管理するための[nodenv](https://github.com/nodenv/nodenv)と`**env`系のパッケージマネージャを管理する[anyenv](https://github.com/anyenv/anyenv)である。
