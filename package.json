@@ -37,7 +37,7 @@
   },
   "scripts": {
     "fmt": "prettier --write \"**/*.md\"",
-    "lint:txt": "textlint \"**/*.md\"",
+    "lint:txt": "textlint \"**/*.md\" && textlint --cache \"**/*.md\"",
     "lint:md": "markdownlint --fix \"**/*.md\"",
     "prepare": "husky install"
   }
