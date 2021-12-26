@@ -1,5 +1,5 @@
 ---
-title: "Gatsbyにページネーションを実装する"
+title: "Gatsby にページネーションを実装する"
 date: "2021-10-28T21:48:56.421Z"
 category: "t"
 description: ""
@@ -10,26 +10,27 @@ published: true
 
 ## モチベーション
 
-* 記事数が多くなったため1ページあたりのデータ量を減らしたい
-* スクロールする手間を減らしたい
-* UXを向上させたい
+- 記事数が多くなったため 1 ページあたりのデータ量を減らしたい
+- スクロールする手間を減らしたい
+- UX を向上させたい
 
-ページネーションではなくAjaxを使った無限スクロールもあるけど、個人的にあまり好きではないので選択肢から除外した。
-Instagramみたいな魅せる画像系とは相性が良いけど、ブログみたいにピンポイントで記事を探しているときには融通が効かない。
+ページネーションではなく Ajax を使った無限スクロールもあるけど、個人的にあまり好きではないので選択肢から除外した。
+Instagram みたいな魅せる画像系とは相性が良いけど、ブログみたいにピンポイントで記事を探しているときには融通が効かない。
 
-また、Gatsbyにはページネーションを簡単に実装できる下記のプラグインがある。
+また、Gatsby にはページネーションを簡単に実装できる下記のプラグインがある。
 
-* [gatsby-awesome-pagination](https://github.com/GatsbyCentral/gatsby-awesome-pagination)
-* [gatsby-paginate](https://github.com/pixelstew/gatsby-paginate)
-* [gatsby-plugin-paginate](https://github.com/kbariotis/gatsby-plugin-paginate)
+- [gatsby-awesome-pagination](https://github.com/GatsbyCentral/gatsby-awesome-pagination)
+- [gatsby-paginate](https://github.com/pixelstew/gatsby-paginate)
+- [gatsby-plugin-paginate](https://github.com/kbariotis/gatsby-plugin-paginate)
 
 今回はプラグインを使用しないで実装する。
 なぜなら上記のプラグインは公式からリリースされたものではないため、サポートが途切れることも考えられる。
 また、ページネーション自体は大した実装ではない。
 それにややこしい`gatsby-node`関連の知見を溜めたいという気持ちもある。
 
-[[i | 参考]]
-| [Gatsby.js公式ドキュメント](https://www.gatsbyjs.com/docs/adding-pagination/)
+### 参考
+
+[Gatsby.js 公式ドキュメント](https://www.gatsbyjs.com/docs/adding-pagination/)
 
 ## 開発環境
 
@@ -53,14 +54,14 @@ yarn info react version
 当ブログはトップページで記事一覧を表示しているが`src/pages/index.tsx`で管理していた。
 これをまずは`src/templates/index.tsx`にリネームする。
 
-静的ページでも強引にページネーションを実装可能だが**記事数が多くなったため1ページあたりのデータ量を減らしたい**というメリットを享受できないのでオススメしない。
+静的ページでも強引にページネーションを実装可能だが**記事数が多くなったため 1 ページあたりのデータ量を減らしたい**というメリットを享受できないのでオススメしない。
 
 今回は全記事一覧とカテゴリ別記事一覧ページにページネーションを実装していく。
 
-* 全記事一覧ページ -> `src/templates/index.tsx`
-* カテゴリ別記事一覧ページ -> `src/templates/categories.tsx`
+- 全記事一覧ページ -> `src/templates/index.tsx`
+- カテゴリ別記事一覧ページ -> `src/templates/categories.tsx`
 
-***
+---
 
 ### ページの生成
 
@@ -71,7 +72,7 @@ yarn info react version
 ```javascript:title=gatsby-node.js
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // ...
-  
+
   const posts = result.data.allMarkdownRemark.edges;
   const postsPerPage = 8;
   const numPages = Math.ceil(posts.length / postsPerPage);
@@ -93,15 +94,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 }
 ```
 
-1. 1ページあたりの記事数（8件）を設定（`postPerPage`）
-2. 全記事数から1ページあたりの記事数を割ることでページ数を算出（`numPages`）
-3. ページ数からArrayインスタンスを作成し、`forEach`で回す
+1. 1 ページあたりの記事数（8 件）を設定（`postPerPage`）
+2. 全記事数から 1 ページあたりの記事数を割ることでページ数を算出（`numPages`）
+3. ページ数から Array インスタンスを作成し、`forEach`で回す
 
 全記事を取得して分割するだけなので特に難しいことはないが、いくつかポイントがある。
 
-* `path`で三項演算子を利用して1ページしかない場合のパスを定義する
-* `context`で後からコンポーネントで使用するプロパティを定義する
-  * `context`で定義した値はpageContextで呼び出したり、Graphqlの変数（`$limit, $skip`）として使ったりできる
+- `path`で三項演算子を利用して 1 ページしかない場合のパスを定義する
+- `context`で後からコンポーネントで使用するプロパティを定義する
+  - `context`で定義した値は pageContext で呼び出したり、Graphql の変数（`$limit, $skip`）として使ったりできる
 
 #### カテゴリ別記事一覧ページの場合
 
@@ -148,11 +149,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 全記事一覧ページの場合と被っている部分もあるが、違う点はカテゴリごとにページを生成するという点だ。
 カテゴリの配列を作ってからそれを`forEach`で回す。さらにその中でカテゴリごとの記事数を取得して前述したようにページを作成する。
 
-***
+---
 
 ### 必要な記事だけを取得
 
-これで下準備ができた。この時点ではページ自体は生成されているが中身は変わらないので`templates/*`でGraphQLクエリに値を渡し、必要な記事数だけを取得できるようにする。
+これで下準備ができた。この時点ではページ自体は生成されているが中身は変わらないので`templates/*`で GraphQL クエリに値を渡し、必要な記事数だけを取得できるようにする。
 
 #### 全記事一覧ページの場合
 
@@ -176,7 +177,7 @@ export const pageQuery = graphql`
 
 この辺の挙動は実際に`http://localhost:8000/__graphiql`にアクセスして確かめると分かりやすい。
 
-例：記事の絵文字を日付順に3件目から（2件スキップして）2件取得。
+例：記事の絵文字を日付順に 3 件目から（2 件スキップして）2 件取得。
 
 ```graphql:title=GraphQL
 query MyQuery {
@@ -222,7 +223,7 @@ query MyQuery {
 }
 ```
 
-デフォルトで様々なクエリを使えるのがGatsbyの大きな利点の1つであるから積極的に試してみたいところだ（まだまだ使いこなせていない）。
+デフォルトで様々なクエリを使えるのが Gatsby の大きな利点の 1 つであるから積極的に試してみたいところだ（まだまだ使いこなせていない）。
 
 #### カテゴリ別記事一覧ページの場合
 
@@ -245,12 +246,12 @@ export const pageQuery = graphql`
 
 全記事一覧ページとほとんど同じだが、カテゴリ毎に記事を取得するために`filter`が設けられている。
 
-この段階でURLを入力するとちゃんとページ分けされていることが確認できる。
-次にページネーションのUIコンポーネントを作成していく。
+この段階で URL を入力するとちゃんとページ分けされていることが確認できる。
+次にページネーションの UI コンポーネントを作成していく。
 
-***
+---
 
-### UIコンポーネントの作成
+### UI コンポーネントの作成
 
 コンポーネントでは`gatsby-node.js`で定義した`context`を利用する。
 ページネーションのデザインは好みが別れるので参考程度に考えていただきたい。
@@ -330,7 +331,7 @@ const Pagination = ({ numPages, currentPage, hasNextPage, hasPrevPage, pagePath,
 まずデストラクチャリングで`pageContext`からページネーションに必要な要素を取り出す。
 このコンポーネントは現時点ではどこにも使っていないけれど後から使う想定で書いていく。
 
-1つずつ説明するのも冗長なのでポイントとなる箇所にコメントを記載した。
+1 つずつ説明するのも冗長なのでポイントとなる箇所にコメントを記載した。
 総ページ数と開いているページ数に応じて表記を変える部分の数値を変えると色々なバリエーションが生まれる。
 
 あと、上記では`&lt; Prev`と`Next &gt;`で前後ボタンを常時表示しているが、`{hasPrevPage && "< Prev"}`みたいにページが存在する場合のみ表示させる方法もある。
@@ -434,12 +435,15 @@ export default StyledPagination;
 ```
 
 <!-- textlint-disable sentence-length -->
-CSS-in-JSかCSS Moduleかによる記法の違いはあれど共通するポイントとしては`-disable`と`selected`、`span`（…）の各セレクタでは`pointer-events: none;`で押せなくする必要がある。
+
+CSS-in-JS か CSS Module かによる記法の違いはある。
+共通するポイントとしては`-disable`と`selected`、`span`（…）の各セレクタでは`pointer-events: none;`で押せなくする必要がある。
+
 <!-- textlint-enable -->
 
 それ以外は自分の好みに合わせて書き換えれば良い。
 
-***
+---
 
 ### コンポーネントを使う
 
@@ -484,22 +488,23 @@ const Index = ({ data, pageContext, location }) => {
 `pageContext`からデストラクチャリングで各プロパティを取り出す。
 そして、まだ定義していなかった関数`postPagePath`を作成。
 
-TSX内ではコンポーネントタグに必要なプロパティを持たせる。これで完成。
+TSX 内ではコンポーネントタグに必要なプロパティを持たせる。これで完成。
 
 #### カテゴリ別記事一覧ページの場合
 
 これもほぼ同じ書き方だがパスが違うのだけ修正する。
 
 ```typescript
-const postPagePath = page => (page <= 1 ? `/${categorySlug}` : `/${categorySlug}/${page}/`);
+const postPagePath = (page) =>
+  page <= 1 ? `/${categorySlug}` : `/${categorySlug}/${page}/`;
 ```
 
-***
+---
 
 ### おまけ
 
 当ブログではカテゴリを円形のボタンで切り替えられる。
-しかし、ページを変えるとactiveでなくなる現象が発生した。
+しかし、ページを変えると active でなくなる現象が発生した。
 
 ```typescript:title=categoryMenu.tsx
 const pathInclude =
@@ -514,8 +519,8 @@ const pathInclude =
 <CategoryItem className={pathInclude && "active"}>
 ```
 
-このように書くことで解決した。もし何かactiveにすることでスタイルを変えている場合は対応する必要がある。
-もしくは現時点ではちょっと理解が乏しいけどHooksを使うことで対応できそう。良い解決策が思いついたら追記する。
+このように書くことで解決した。もし何か active にすることでスタイルを変えている場合は対応する必要がある。
+もしくは現時点ではちょっと理解が乏しいけど Hooks を使うことで対応できそう。良い解決策が思いついたら追記する。
 
 ## さいごに
 
@@ -523,6 +528,7 @@ const pathInclude =
 だが、それを理解することで今後様々な動的ページの表現方法が広がるのでやってよかった。
 けっこう癖があるけど使いこなせれば便利なツールだということが分かった。
 
-[[i | 関連リンク]]
-| * [Issue](https://github.com/ktnkk/blog/issues/159)
-| * [Pull request](https://github.com/ktnkk/blog/pull/161)
+## 関連リンク
+
+- [Issue](https://github.com/ktnkk/blog/issues/159)
+- [Pull request](https://github.com/ktnkk/blog/pull/161)

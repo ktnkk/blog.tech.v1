@@ -1,5 +1,5 @@
 ---
-title: "Dockerを使ったShopify CLIの環境構築"
+title: "Docker を使った Shopify CLI の環境構築"
 date: "2021-10-07T15:36:44.284Z"
 category: "t"
 description: ""
@@ -13,7 +13,7 @@ published: true
 今の時代はメルカリやヤフオクなど誰でも簡単に要らなくなったものを適正な価格で売買できる。
 しかし、よく考えてみると手数料も高いし、何だか損してるなと感じるのは贅沢な悩みだろうか。
 
-できることなら自分のショップを独立した形で持てれば色々と捗るだろうから、その分野ではもっとも勢いのあるShopifyでストアを作ってみることにした。
+できることなら自分のショップを独立した形で持てれば色々と捗るだろうから、その分野ではもっとも勢いのある Shopify でストアを作ってみることにした。
 あわよくば、それで仕事の幅を広げられたら良いな。
 
 まずはお店の外観となるテーマの編集をしていきたい。[Shopify CLI](https://github.com/Shopify/shopify-cli)という便利ツールを使っていく。
@@ -21,8 +21,8 @@ published: true
 
 ## 開発環境
 
-今回もDockerを使って開発環境を整えていく。ただ、最後の最後に詰まったということは初めに書いておきたい。
-私の知識不足が大きな原因だが、そんなに拘りがないのであればDockerは使わないほうが賢明である。
+今回も Docker を使って開発環境を整えていく。ただ、最後の最後に詰まったということは初めに書いておきたい。
+私の知識不足が大きな原因だが、そんなに拘りがないのであれば Docker は使わないほうが賢明である。
 まだバグが多いし、けっこう仕様の変更がある。
 
 ```shell:title=Zsh {outputLines: 2-13, 15-18, 20-22, 24-25, 27-28, 30}{}
@@ -40,9 +40,9 @@ Hardware:
       OS Loader Version: 6723.140.2
 
 sw_vers
-ProductName:	macOS
-ProductVersion:	11.6
-BuildVersion:	20G165
+ProductName: macOS
+ProductVersion: 11.6
+BuildVersion: 20G165
 
 docker -v
 Docker version 20.10.8, build 3967b7d
@@ -60,7 +60,7 @@ shopify version
 
 ## 作業手順
 
-空のプロジェクトを作成して以下のファイルからDockerコンテナを生成する。
+空のプロジェクトを作成して以下のファイルから Docker コンテナを生成する。
 
 ```dockerfile:title=Dockerfile
 FROM ruby:3.0.2-bullseye
@@ -78,8 +78,8 @@ RUN apt update -q \
 WORKDIR /usr/src/app
 ```
 
-8行目の`printf "[analytics]\nenabled = false\n" > ~/.config/shopify/config`は何を意味するのか。
-それはshopify-cliのコマンド`shopify config analytics --disable`と同じことである。
+8 行目の`printf "[analytics]\nenabled = false\n" > ~/.config/shopify/config`は何を意味するのか。
+それは shopify-cli のコマンド`shopify config analytics --disable`と同じことである。
 
 これを書くことで匿名の使用状況レポートを送信されないようにする。どんなに匿名と言っても信用できない。
 
@@ -103,7 +103,7 @@ services:
 ```
 
 ポートフォワーディングに関しては`3456`は認証時に使用、`9292`はプレビューを見るときに使用するので開けておく。
-今回はテーマしか編集しないけどRailsやNode.jsを使ったアプリ開発をするのであれば対応したポートを開ける必要がある。
+今回はテーマしか編集しないけど Rails や Node.js を使ったアプリ開発をするのであれば対応したポートを開ける必要がある。
 
 ```shell:title=Zsh {outputLines: 2}{}
 docker compose up --build -d
@@ -128,12 +128,12 @@ shopify theme init Dawn
 ┗━━ ✓ Cloned into Dawn ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ (3.28s) ━━
 ```
 
-早速ストア名を使ってOAuth認証する。
-URLが発行されるのでブラウザからアクセスすればOK。
+早速ストア名を使って OAuth 認証する。
+URL が発行されるのでブラウザからアクセスすれば OK。
 
 `shopify whoami`でログインしているパートナー組織、またはスタッフメンバーとしてログインしているストアを表示する。
 
-テーマはもっともベーシックなDawnを入れてみた。以下のような構造をしている。
+テーマはもっともベーシックな Dawn を入れてみた。以下のような構造をしている。
 
 ```shell:title=Bash {outputLines: 2, 4-20}{}
 apt install tree
@@ -158,7 +158,7 @@ tree -L 2
 └── yarn.lock
 ```
 
-GitHubを使ってテーマを管理するのであればプロジェクトルートにダウンロードしたディレクトリを配置しなければならない（上記の例では`Dawn`ディレクトリ内に配置されてしまっている）。
+GitHub を使ってテーマを管理するのであればプロジェクトルートにダウンロードしたディレクトリを配置しなければならない（上記の例では`Dawn`ディレクトリ内に配置されてしまっている）。
 
 ```shell:title=Bash {outputLines: 2-4, 6-8}{}
 shopify theme serve
@@ -197,16 +197,16 @@ shopify theme serve
 ここからが詰まりポイント。
 `shopify theme serve`で開発サーバを立ち上げてみると成功した風な表示が出る。
 
-しかし、ブラウザ（残念ながらGoogle Chromeしか対応していない）からアクセスしてみると`ERR_EMPTY_RESPONSE`と表示されてプレビューが表示されない。
+しかし、ブラウザ（残念ながら Google Chrome しか対応していない）からアクセスしてみると`ERR_EMPTY_RESPONSE`と表示されてプレビューが表示されない。
 
-この原因はコンテナ外からリクエストが来ているのに開発サーバが`localhost`（`http://127.0.0.1`）でListenしてしまっているからである。
-なのでホストが持つ全てのインタフェースでListenできるように`0.0.0.0`でサーバを建てる必要がある。
+この原因はコンテナ外からリクエストが来ているのに開発サーバが`localhost`（`http://127.0.0.1`）で Listen してしまっているからである。
+なのでホストが持つ全てのインタフェースで Listen できるように`0.0.0.0`でサーバを建てる必要がある。
 
-ただ、残念なことにShopify CLIにはオプションでホストIPを設定できないようだ。
-Gatsbyであれば`gatsby develop -H 0.0.0.0`、Railsであれば`rails server -b 0.0.0.0`みたいに書けるイメージだったのだが。
+ただ、残念なことに Shopify CLI にはオプションでホスト IP を設定できないようだ。
+Gatsby であれば`gatsby develop -H 0.0.0.0`、Rails であれば`rails server -b 0.0.0.0`みたいに書けるイメージだったのだが。
 
-遠回りだが今回インストールしたGem（shopify-cli）を直接書き換えるしかない。
-以下がそのdiff。
+遠回りだが今回インストールした Gem（shopify-cli）を直接書き換えるしかない。
+以下がその diff。
 
 ```shell:title=Bash {outputLines: 2}{}
 cd /usr/local/bundle/gems/shopify-cli-2.6.3/lib/shopify_cli/theme/dev_server
@@ -214,7 +214,7 @@ cd /usr/local/bundle/gems/shopify-cli-2.6.3/lib/shopify_cli/theme/dev_server
 vi web_server.rb
 ```
 
-Webサーバの設定をしている[Rubyファイル](https://github.com/Shopify/shopify-cli/blob/0701e2820b74fe58e9df6ebcb322fb0f63bf39bc/lib/shopify_cli/theme/dev_server/web_server.rb#L31)を修正。
+Web サーバの設定をしている[Ruby ファイル](https://github.com/Shopify/shopify-cli/blob/0701e2820b74fe58e9df6ebcb322fb0f63bf39bc/lib/shopify_cli/theme/dev_server/web_server.rb#L31)を修正。
 
 ```diff:title=web_server.rb
 # Base on Rack::Handler::WEBrick
@@ -233,7 +233,7 @@ class WebServer < ::WEBrick::HTTPServlet::AbstractServlet
     end
 ```
 
-これだけではプレビューを変更したときに投げられるHTTPリクエストでトークンに関するエラーが出るのでWEBrick（RubyのWebサーバライブラリ）の[設定](https://github.com/Shopify/shopify-cli/blob/6e8521863045721a6714660b6784378fd8e907a8/vendor/deps/webrick/lib/webrick/httprequest.rb#L601)を弄る。
+これだけではプレビューを変更したときに投げられる HTTP リクエストでトークンに関するエラーが出るので WEBrick（Ruby の Web サーバライブラリ）の[設定](https://github.com/Shopify/shopify-cli/blob/6e8521863045721a6714660b6784378fd8e907a8/vendor/deps/webrick/lib/webrick/httprequest.rb#L601)を弄る。
 
 ```shell:title=Bash {outputLines: 2}{}
 cd /usr/local/bundle/gems/shopify-cli-2.6.3/vendor/deps/webrick/lib/webrick
@@ -253,13 +253,13 @@ PrivateNetworkRegexp = /
 これでようやくプレビュー画面を表示させることができた。
 ホットリロードに対応しているため即座にデザインを確かめられる点が素晴らしい。
 
-Shopifyについて調べて実際にストアを構築する中で開発面での充実度がかなり高いなと感じている。
-[Liquid](https://github.com/Shopify/liquid)という奇妙なテンプレート言語もあるし、APIも豊富で極めればすごく面白いことができそうだ。
+Shopify について調べて実際にストアを構築する中で開発面での充実度がかなり高いなと感じている。
+[Liquid](https://github.com/Shopify/liquid)という奇妙なテンプレート言語もあるし、API も豊富で極めればすごく面白いことができそうだ。
 
 ## あとがき
 
-Dockerでの環境構築をするには現時点でGem内部を弄る必要があるのであまりオススメしない。
+Docker での環境構築をするには現時点で Gem 内部を弄る必要があるのであまりオススメしない。
 どうしてもしたいのであれば止めないが何かあっても自己責任でお願いしたい。
 
-ただ、流石にDockerコンテナを再構築するたびにファイルを変更するのは面倒なのでShopify CLIのリポジトリに[Issue](https://github.com/Shopify/shopify-cli/issues/1615)を投げてみた。
+ただ、流石に Docker コンテナを再構築するたびにファイルを変更するのは面倒なので Shopify CLI のリポジトリに[Issue](https://github.com/Shopify/shopify-cli/issues/1615)を投げてみた。
 せめてオプションが指定できれば良いのだがどうかな。

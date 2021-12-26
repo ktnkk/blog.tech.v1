@@ -12,8 +12,8 @@ published: false
 
 ## モチベーション
 
-* 実際に本を捲るようなアニメーションを実装してみたい
-* Reactのコンポーネントとして手札に持っておきたい
+- 実際に本を捲るようなアニメーションを実装してみたい
+- React のコンポーネントとして手札に持っておきたい
 
 ## 開発環境
 
@@ -116,17 +116,17 @@ yarn develop -H 0.0.0.0
 
 次に作業ディレクトリ下に作られたスターターのファイル類をプロジェクトルートに移動させる。そして、空になったディレクトリを削除する。
 
-ついでに`package-lock.json`も削除して`yarn`でパッケージを管理する手筈を整えて開発サーバを動かせばいつものGatsbyおじさんが現れるはずだ。ここまで10分もかからずに用意できた。
+ついでに`package-lock.json`も削除して`yarn`でパッケージを管理する手筈を整えて開発サーバを動かせばいつもの Gatsby おじさんが現れるはずだ。ここまで 10 分もかからずに用意できた。
 
-## react-pageflipの導入
+## react-pageflip の導入
 
-### react-pageflipのインストール
+### react-pageflip のインストール
 
 ここから本題のページアニメーションの実装に取り掛かっていく。
-この分野のモジュールでは[Turn.js](https://github.com/blasten/turn.js/)が有名だが全然メンテナンスがされていない（最後のコミットが2013年5月）し、jQueryは使いたくないので選択肢から外れた。
+この分野のモジュールでは[Turn.js](https://github.com/blasten/turn.js/)が有名だが全然メンテナンスがされていない（最後のコミットが 2013 年 5 月）し、jQuery は使いたくないので選択肢から外れた。
 
 色々と調べてみて良さそうだと思ったのが今回使用する[react-pageflip](https://github.com/Nodlik/react-pageflip)である。
-これは[StPageFlip](https://github.com/Nodlik/StPageFlip)がReact用に改良されたものである（同じ作者）。
+これは[StPageFlip](https://github.com/Nodlik/StPageFlip)が React 用に改良されたものである（同じ作者）。
 
 早速、インストールしてみる。
 
@@ -137,9 +137,9 @@ yarn info react-pageflip version
 2.0.3
 ```
 
-### styled-componentsのインストール
+### styled-components のインストール
 
-ついでに後でスタイリングする際に使うstyled-componentsもインストールする（任意）。
+ついでに後でスタイリングする際に使う styled-components もインストールする（任意）。
 
 ```shell:title=Bash {outputLines: 2, 4-5, 7-8, 10}{}
 yarn add styled-components gatsby-plugin-styled-components babel-plugin-styled-components
@@ -163,12 +163,12 @@ module.exports = {
 }
 ```
 
-## react-pageflipで遊ぶ
+## react-pageflip で遊ぶ
 
-gatsby-starter-defaultは便利だがスタイルの書き方や無駄なページがあったりと最初に綺麗にする手間がどうにも面倒くさい。
+gatsby-starter-default は便利だがスタイルの書き方や無駄なページがあったりと最初に綺麗にする手間がどうにも面倒くさい。
 そういったニーズに合わせたスターターもあるにはあるが、ちょっと古かったりするので結局使わずにここまで来た。
 適当に綺麗にしたと仮定して、公式ページのマニュアルに沿ってハンズオンで進めていく。
 
 ### 基本的な使い方
 
-コンポーネントとして使わない場合はimport後にそのまま使える。
+コンポーネントとして使わない場合は import 後にそのまま使える。

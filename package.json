@@ -1,0 +1,44 @@
+{
+  "name": "blog.tech",
+  "private": true,
+  "description": "A personal blog by @ktnkk",
+  "version": "1.0.0",
+  "author": "Keiten Kiki <ktnkk@pm.me>",
+  "homepage": "https://github.com/ktnkk/blog.tech#readme",
+  "license": "©",
+  "bugs": {
+    "url": "https://github.com/ktnkk/blog.tech/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ktnkk/blog.tech.git"
+  },
+  "keywords": [
+    "blog",
+    "markdown"
+  ],
+  "main": "n/a",
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.4",
+    "markdownlint": "^0.24.0",
+    "markdownlint-cli": "^0.30.0",
+    "prettier": "^2.5.1",
+    "semantic-release": "^18.0.1",
+    "semantic-release-cli": "^5.4.4",
+    "textlint": "^12.1.0",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-rule-no-dead-link": "^4.8.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0"
+  },
+  "scripts": {
+    "fmt": "prettier --write \"**/*.md\"",
+    "lint:txt": "textlint \"**/*.md\"",
+    "lint:md": "markdownlint --fix \"**/*.md\"",
+    "prepare": "husky install"
+  }
+}

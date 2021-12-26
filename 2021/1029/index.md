@@ -1,5 +1,5 @@
 ---
-title: "Gatsbyに下書き機能を実装する"
+title: "Gatsby に下書き機能を実装する"
 date: "2021-10-29T18:08:56.421Z"
 category: "t"
 description: ""
@@ -31,7 +31,7 @@ yarn info react version
 
 ### Frontmatter
 
-まず、前提としてマークダウンファイルのFrontmatterに真偽値型で公開の是非を記載しておく。
+まず、前提としてマークダウンファイルの Frontmatter に真偽値型で公開の是非を記載しておく。
 
 ```markdown{8}:title=index.md
 ---
@@ -45,11 +45,11 @@ published: true
 ---
 ```
 
-***
+---
 
 ### ページ生成を制御
 
-Gatsbyのページ生成を司る`gatsby-node.js`にちょっと手を加えていく。
+Gatsby のページ生成を司る`gatsby-node.js`にちょっと手を加えていく。
 下書きを表示させないということはページ自体ももちろんだが、記事一覧ページの表示も制限させないといけない点に注意が必要である。
 まずはページ自体のフィルタリング方法から。
 
@@ -69,7 +69,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-  
+
   // ...
 }
 ```
@@ -83,7 +83,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 ```diff:title=gatsby-node.js
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // ...
-  
+
   Array.from({length: numPages}).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/` : `/${i + 1}`,
@@ -99,7 +99,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     });
   });
-  
+
   // ...
 }
 ```
@@ -140,6 +140,7 @@ export const pageQuery = graphql`
 今のところ下書きの記事自体が少ないから迷うことはないが、これから増えることが予想される。
 余裕があれば下書き一覧ページの作成やラベルの貼り付けなどして下書き記事の管理をできるようにしたい。
 
-[[i | 関連リンク]]
-| * [Issue](https://github.com/ktnkk/blog/issues/116)
-| * [Pull request](https://github.com/ktnkk/blog/pull/174)
+## 関連リンク
+
+- [Issue](https://github.com/ktnkk/blog/issues/116)
+- [Pull request](https://github.com/ktnkk/blog/pull/174)

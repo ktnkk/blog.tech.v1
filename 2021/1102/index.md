@@ -1,5 +1,5 @@
 ---
-title: "textlintで校正を自動化する"
+title: "textlint で校正を自動化する"
 date: "2021-11-02T18:08:56.421Z"
 category: "t"
 description: ""
@@ -47,28 +47,28 @@ touch .textlintignore
 
 ## マニフェスト
 
-* 1文の長さは100文字以下
-* セクションの最初の1文の長さは50文字以下
-* 「、」は1文中に3つまで
-* 連続できる最大の漢字長は6文字まで
-* 「ですます調」、「である調」を統一する
-* 文末の句点記号として「」を使う
-* 二重否定は使用しない
-* ら抜き言葉を使用しない
-* 逆接の接続助詞「が」を連続して使用しない
-* 同じ接続詞を連続して使用しない
-* 同じ助詞を連続して使用しない
-* 半角カナを使用しない
-* 弱い日本語表現を使用しない
-* よくある日本語の誤用をチェックする
-* 冗長な表現をチェックする
-* 入力ミスで発生する不自然なアルファベットをチェックする
-* 漢字よりもひらがなで表記すべき形式名詞、副詞、補助動詞をチェックする
-* 例示・並列表現の「～たり、（～たり）する」をチェックする
-* サ抜き、サ入れ表現の誤用をチェックする
-* 「ええと」「あの」「まあ」などのフィラー（つなぎ表現）を禁止する
-* ドキュメント内のすべてのリンクが使用可能であることを確認する
-* 漢数字と算用数字を使い分ける
+- 1 文の長さは 100 文字以下
+- セクションの最初の 1 文の長さは 50 文字以下
+- 「、」は 1 文中に 3 つまで
+- 連続できる最大の漢字長は 6 文字まで
+- 「ですます調」、「である調」を統一する
+- 文末の句点記号として「」を使う
+- 二重否定は使用しない
+- ら抜き言葉を使用しない
+- 逆接の接続助詞「が」を連続して使用しない
+- 同じ接続詞を連続して使用しない
+- 同じ助詞を連続して使用しない
+- 半角カナを使用しない
+- 弱い日本語表現を使用しない
+- よくある日本語の誤用をチェックする
+- 冗長な表現をチェックする
+- 入力ミスで発生する不自然なアルファベットをチェックする
+- 漢字よりもひらがなで表記すべき形式名詞、副詞、補助動詞をチェックする
+- 例示・並列表現の「～たり、（～たり）する」をチェックする
+- サ抜き、サ入れ表現の誤用をチェックする
+- 「ええと」「あの」「まあ」などのフィラー（つなぎ表現）を禁止する
+- ドキュメント内のすべてのリンクが使用可能であることを確認する
+- 漢数字と算用数字を使い分ける
 
 ## 書き方ルールを設定
 
@@ -99,7 +99,7 @@ module.exports = {
 };
 ```
 
-***
+---
 
 ### [textlint-rule-max-kanji-continuous-len](https://github.com/textlint-ja/textlint-rule-max-kanji-continuous-len)
 
@@ -122,7 +122,7 @@ module.exports = {
 };
 ```
 
-***
+---
 
 ### [textlint-rule-no-mix-dearu-desumasu](https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu)
 
@@ -149,11 +149,11 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-doubled-joshi](https://github.com/textlint-ja/textlint-rule-no-doubled-joshi)
 
-1つの文中に同じ助詞が連続して出てくるのをチェックする。
+1 つの文中に同じ助詞が連続して出てくるのをチェックする。
 
 ```shell:title=Bash
 yarn add -D textlint-rule-no-doubled-joshi
@@ -177,7 +177,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-double-negative-ja](https://github.com/textlint-ja/textlint-rule-no-double-negative-ja)
 
@@ -195,7 +195,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-hankaku-kana](https://github.com/azu/textlint-rule-no-hankaku-kana)
 
@@ -213,16 +213,16 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-no-weak-phrase](https://github.com/textlint-ja/textlint-rule-ja-no-weak-phrase)
 
 弱い日本語表現の利用を禁止する。
 
-* 〜かもしれない
-* 〜と思う
-* 〜と思います
-* 可能性を示唆する
+- 〜かもしれない
+- 〜と思う
+- 〜と思います
+- 可能性を示唆する
 
 上記のような言葉が弱い日本語に該当する。
 
@@ -238,7 +238,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-no-redundant-expression](https://github.com/textlint-ja/textlint-rule-ja-no-redundant-expression)
 
@@ -256,14 +256,14 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-no-abusage](https://github.com/textlint-ja/textlint-rule-ja-no-abusage)
 
 よくある誤用をチェックする（下記は辞書の定義）。
 
-* [dict/prh.yml](https://github.com/textlint-ja/textlint-rule-ja-no-abusage/blob/master/dict/prh.yml)
-* [src/dictionary.ts](https://github.com/textlint-ja/textlint-rule-ja-no-abusage/blob/master/src/dictionary.ts)
+- [dict/prh.yml](https://github.com/textlint-ja/textlint-rule-ja-no-abusage/blob/master/dict/prh.yml)
+- [src/dictionary.ts](https://github.com/textlint-ja/textlint-rule-ja-no-abusage/blob/master/src/dictionary.ts)
 
 ```shell:title=Bash
 yarn add -D textlint-rule-ja-no-abusage
@@ -277,7 +277,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet](https://github.com/textlint-ja/textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet)
 
@@ -297,7 +297,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-sentence-length](https://github.com/azu/textlint-rule-sentence-length)
 
@@ -318,7 +318,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-first-sentence-length](https://github.com/azu/textlint-rule-first-sentence-length)
 
@@ -338,7 +338,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-dropping-the-ra](https://github.com/textlint-ja/textlint-rule-no-dropping-the-ra)
 
@@ -356,7 +356,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-doubled-conjunctive-particle-ga](https://github.com/takahashim/textlint-rule-no-doubled-conjunctive-particle-ga)
 
@@ -375,7 +375,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-doubled-conjunction](https://github.com/takahashim/textlint-rule-no-doubled-conjunction)
 
@@ -393,11 +393,11 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-no-mixed-period](https://github.com/textlint-ja/textlint-rule-ja-no-mixed-period)
 
-文末の句点（）の統一or抜けをチェックする。
+文末の句点（）の統一 or 抜けをチェックする。
 
 ```shell:title=Bash
 yarn add -D textlint-rule-ja-no-mixed-period
@@ -420,7 +420,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-hiragana-keishikimeishi](https://github.com/lostandfound/textlint-rule-ja-hiragana-keishikimeishi)
 
@@ -438,7 +438,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-hiragana-fukushi](https://github.com/lostandfound/textlint-rule-ja-hiragana-fukushi)
 
@@ -456,7 +456,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-hiragana-hojodoushi](https://github.com/lostandfound/textlint-rule-ja-hiragana-hojodoushi)
 
@@ -474,7 +474,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-ja-unnatural-alphabet](https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet)
 
@@ -492,7 +492,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-insert-dropping-sa](https://github.com/textlint-ja/textlint-rule-no-insert-dropping-sa)
 
@@ -510,7 +510,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-prefer-tari-tari](https://github.com/textlint-ja/textlint-rule-prefer-tari-tari)
 
@@ -544,7 +544,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-no-dead-link](https://github.com/nodaguti/textlint-rule-no-dead-link)
 
@@ -577,7 +577,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-rule-prh](https://github.com/textlint-rule/textlint-rule-prh)
 
@@ -624,7 +624,7 @@ rules:
         to: jQuery
 ```
 
-***
+---
 
 ### [textlint-rule-preset-JTF-style](https://github.com/textlint-ja/textlint-rule-preset-JTF-style)
 
@@ -645,7 +645,7 @@ module.exports = {
 
 ### [textlint-plugin-markdown](https://github.com/textlint/textlint/tree/master/packages/@textlint/textlint-plugin-markdown)
 
-Markdown記法を考慮した校正をする。
+Markdown 記法を考慮した校正をする。
 後から気づいたが、これは組み込みプラグインなのでインストールする必要はなかった。
 もし`mdx`を使っている場合は拡張のためにインストールする必要がある。
 
@@ -661,7 +661,7 @@ module.exports = {
 }
 ```
 
-***
+---
 
 ### [textlint-filter-rule-comments](https://github.com/textlint/textlint-filter-rule-comments)
 
@@ -691,7 +691,7 @@ module.exports = {
 <!-- textlint-enable -->
 ```
 
-***
+---
 
 ### [textlint-filter-rule-allowlist](https://github.com/textlint/textlint-filter-rule-allowlist)
 
@@ -834,8 +834,8 @@ module.exports = {
 
 ## 実行結果
 
-試しに1つの記事をリンターに解析させてみる。
-実行環境はDockerなのだが、想像以上にメモリを消費してしまい`Killed`されて実行できなかった。
+試しに 1 つの記事をリンターに解析させてみる。
+実行環境は Docker なのだが、想像以上にメモリを消費してしまい`Killed`されて実行できなかった。
 メモリの上限を上げたら問題なく実行できた。
 
 ```shell:title=Bash {outputLines: 2-42}{}
@@ -884,7 +884,7 @@ Try to run: $ textlint --fix [file]
 ```
 
 想像していたよりも大量のエラーでショックを受けた。
-1つの記事でこれだから先が思いやられる。
+1 つの記事でこれだから先が思いやられる。
 弱い表現を使っていることが多いとのことで、逃げの姿勢が校正によって顕になった。
 
 自動修正可能な表現があるのでコマンドを実行してみる。
@@ -912,7 +912,7 @@ $ /home/node/app/node_modules/.bin/textlint --fix content/blog/tech/2021/1009/in
 ```
 
 いい感じに修正された。言われてみれば、「むしろ」の読みは分かりにくいよな。
-この要領でコマンドを実行しつつ、1つ1つエラーをしらみ潰しにあたる。
+この要領でコマンドを実行しつつ、1 つ 1 つエラーをしらみ潰しにあたる。
 
 他にオプションとして`--rule`を付けることで特定のルールのみ調べることもできる。
 
@@ -930,7 +930,7 @@ yarn textlint --cache "**/*.md"
 ```
 
 `--cache`オプションを使用することで`.textlintcache`が作成される。
-これはGitで管理すべきファイルではないから、`.gitignore`に追加する。
+これは Git で管理すべきファイルではないから、`.gitignore`に追加する。
 
 ```diff:title=.gitignore
 +  # textlint
@@ -942,10 +942,10 @@ yarn textlint --cache "**/*.md"
 ## さいごに
 
 こんなに修正が大変なら初めからリンターを導入しておけば良かったと後悔した。
-これはtextlintだけではなく他のリンターにも当てはまるだろう。できるだけ早く理想の設定ファイルを書いておきたい。
+これは textlint だけではなく他のリンターにも当てはまるだろう。できるだけ早く理想の設定ファイルを書いておきたい。
 
-あと、エディターにはIntelliJ IDEAを使用しているのだが、プラグインが対応していないため毎回コマンドを打つのはけっこう面倒くさい。
-そもそもフロントだけ書くのであればVSCodeかVimでも良いかなと考え始めた。まだ結論は出そうにないけれど。
+あと、エディターには IntelliJ IDEA を使用しているのだが、プラグインが対応していないため毎回コマンドを打つのはけっこう面倒くさい。
+そもそもフロントだけ書くのであれば VSCode か Vim でも良いかなと考え始めた。まだ結論は出そうにないけれど。
 
 今回は全てのサブモジュールに共通した設定を書いたが、カテゴリの種類に応じて設定ファイルを書き換えるのも面白そう。
 ただ、サブモジュールにあまり機能を持たせるのはどうかと考えていて導入はしなかった。気が変わる可能性もある。
@@ -954,9 +954,10 @@ yarn textlint --cache "**/*.md"
 リンターを使うと自然言語でも人工言語を扱っているような感覚になって面白いのでオススメ。
 ちょっとガチガチに規則を縛りすぎたきらいがあるから窮屈に感じるようであれば緩和しよう。
 
-[[i | 関連リンク]]
-| * [Issue](https://github.com/ktnkk/blog/issues/104)
-| * [Pull request](https://github.com/ktnkk/blog/pull/182)
-| * [Techの校正結果](https://github.com/ktnkk/blog/commit/547e0b7da05e52d48fde529f432a0bed20432d62)
-| * [Onsenの校正結果](https://github.com/ktnkk/blog/commit/eabe119869cb2b8d3de1b844817fb28a8c5b9fb8)
-| * [Lifeの校正結果](https://github.com/ktnkk/blog/commit/6d6284a0bf4426943162dc6e0c89aff628afa4ea)
+## 関連リンク
+
+- [Issue](https://github.com/ktnkk/blog/issues/104)
+- [Pull request](https://github.com/ktnkk/blog/pull/182)
+- [Tech の校正結果](https://github.com/ktnkk/blog/commit/547e0b7da05e52d48fde529f432a0bed20432d62)
+- [Onsen の校正結果](https://github.com/ktnkk/blog/commit/eabe119869cb2b8d3de1b844817fb28a8c5b9fb8)
+- [Life の校正結果](https://github.com/ktnkk/blog/commit/6d6284a0bf4426943162dc6e0c89aff628afa4ea)

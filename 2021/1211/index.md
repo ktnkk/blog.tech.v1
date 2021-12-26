@@ -12,9 +12,9 @@ published: true
 
 プロジェクトごとに GitHub のアカウントを変えたい場合がある。
 例えば、実験用や会社用のアカウントなど。
-基本的には1つのアカウントで全てのバージョン管理を行うべきではあるが、それができない場合の対処法を備忘録としてまとめる。
+基本的には 1 つのアカウントで全てのバージョン管理するべきではあるが、それができない場合の対処法を備忘録としてまとめる。
 
-ちなみに [GitHub の規約](https://docs.github.com/en/github/site-policy/github-terms-of-service#3-account-requirements) に書いてあるが、1人の個人または法人が維持できる無料アカウントは1つだけである。
+ちなみに [GitHub の規約](https://docs.github.com/en/github/site-policy/github-terms-of-service#3-account-requirements) に書いてあるが、1 人の個人または法人が維持できる無料アカウントは 1 つだけである。
 そのため無料アカウントを複数持つことはできない。
 私は無料のアカウントと PRO アカウントの両方を運用している。
 
@@ -31,16 +31,16 @@ Hardware:
       Model Name: MacBook Pro
       Model Identifier: MacBookPro17,1
       Chip: Apple M1
-      
+
 sw_vers
-ProductName:	macOS
-ProductVersion:	12.0.1
+ProductName: macOS
+ProductVersion: 12.0.1
 
 git --version
 git version 2.33.0
 ```
 
-## 方法1
+## 方法 1
 
 まずは GitHub から対象のリポジトリをクローンする。
 プロトコルは HTTPS または SSH があるけど、個人的には SSH がおすすめ。
@@ -68,14 +68,14 @@ Host github_sub
     AddKeysToAgent yes
 ```
 
-* Host -> 任意の接続名
-* HostName -> ホスト名
-* User -> ユーザ名
-* IdentityFile -> 接続に使用する秘密鍵へのパス
-* Port -> ポート番号（ SSH のウェルノウンポートは `22` ）
-* TCPKeepAlive -> 通信遮断時に通信先の生存を確認
-* IdentitiesOnly -> 指定された秘密鍵のみを使用
-* AddKeysToAgent -> 認証に使用した鍵を `ssh-agent` に保存
+- Host -> 任意の接続名
+- HostName -> ホスト名
+- User -> ユーザ名
+- IdentityFile -> 接続に使用する秘密鍵へのパス
+- Port -> ポート番号（ SSH のウェルノウンポートは `22` ）
+- TCPKeepAlive -> 通信遮断時に通信先の生存を確認
+- IdentitiesOnly -> 指定された秘密鍵のみを使用
+- AddKeysToAgent -> 認証に使用した鍵を `ssh-agent` に保存
 
 以下は私のデフォルト設定。
 これを読み込んでから `Include` されたファイルに読み込みが移る。
@@ -102,7 +102,7 @@ VisualHostKey yes
 git clone git@{HOST}:{USER_NAME}/{REPOSITORY_NAME}.git
 ```
 
-リポジトリをクローンしたらまず最初に下記の設定を行う。
+リポジトリをクローンしたらまず最初に下記を設定する。
 この作業を忘れるとグローバル（`~/.gitconfig`）に設定したアカウントでコミットされるので注意。
 
 ```shell:title=Zsh {outputLines: 1, 5-6, 8-10, 12-13, 15-16, 18-19}{}
@@ -131,10 +131,9 @@ git config --local user.signingkey "{YOUR_GPG_PUB_KEY}"
 GPG へのパスだが、Homebrew を使った場合のパスを表記している。
 なお、 Intel 版は `/usr/local/bin/gpg`、M1 版は `/opt/homebrew/bin/gpg` とパスが違う点に注意が必要。
 
-
 コマンドを打つのが面倒であれば `-e` オプションでエディタを開いて編集可能。
 
-## 方法2
+## 方法 2
 
 上記では SSH の設定でアカウントを分けた。
 最近知ったが、 GitHub の設定ファイルを弄ることでより簡単に切り替えができる。
@@ -149,6 +148,6 @@ GPG へのパスだが、Homebrew を使った場合のパスを表記してい�
 
 ## さいごに
 
-方法2がおすすめ。
-方法1だと毎回設定ファイルを書くのが面倒だし、何より書き忘れたときが大変だ。
-結局は1つの PC で1つのアカウントだけ使うという運用が合理的だな。
+方法 2 がおすすめ。
+方法 1 だと毎回設定ファイルを書くのが面倒だし、何より書き忘れたときが大変だ。
+結局は 1 つの PC で 1 つのアカウントだけ使うという運用が合理的だな。

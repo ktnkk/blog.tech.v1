@@ -1,5 +1,5 @@
 ---
-title: "M1 MacでGatsbyのDocker環境を作成する"
+title: "M1 Mac で Gatsby の Docker 環境を作成する"
 date: "2021-09-25T15:19:03.284Z"
 category: "t"
 description: ""
@@ -10,13 +10,13 @@ published: true
 
 ## きっかけ
 
-* M1 Macを使うことになり新たにブログの環境構築する必要があった
-* 様々なアーキテクチャのCPUに対応したい（単一作業で）
-* ローカルでnode.jsのバージョンを管理したくない（面倒だから）
-* 誰でも簡単に立ち上げられるようにしたい
+- M1 Mac を使うことになり新たにブログの環境構築する必要があった
+- 様々なアーキテクチャの CPU に対応したい（単一作業で）
+- ローカルで node.js のバージョンを管理したくない（面倒だから）
+- 誰でも簡単に立ち上げられるようにしたい
 
-最近はM1 Macを使っているが別のWebアプリを立ち上げる時にCPUアーキテクチャの違いから苦戦することが多かった。
-試行錯誤する間にローカル環境が汚されていくのは良い気分がしないから基本的にWeb開発はDockerを使っていくことにした。
+最近は M1 Mac を使っているが別の Web アプリを立ち上げる時に CPU アーキテクチャの違いから苦戦することが多かった。
+試行錯誤する間にローカル環境が汚されていくのは良い気分がしないから基本的に Web 開発は Docker を使っていくことにした。
 
 ## 開発環境
 
@@ -35,9 +35,9 @@ Hardware:
       OS Loader Version: 6723.140.2
 
 sw_vers
-ProductName:	macOS
-ProductVersion:	11.6
-BuildVersion:	20G165
+ProductName: macOS
+ProductVersion: 11.6
+BuildVersion: 20G165
 
 docker -v
 Docker version 20.10.8, build 3967b7d
@@ -111,14 +111,6 @@ yarn
 yarn develop -H 0.0.0.0
 ```
 
-[[n | Tips]]
-| `docker compose`や`docker exec`のような長いコマンドはエイリアスとして登録しておくと便利。
-|
-| ```text:title=.zshrc
-| alias dc='docker compose'
-| alias de='docker exec'
-| ```
-
 ## 説明
 
 ### Dockerfile
@@ -136,20 +128,17 @@ EXPOSE 8000
 ```
 
 インストールしているモジュールにもよるけど、このブログの場合は上記の構成で上手くいった。
-最近リリースされたDebian 11のイメージ`bullseye`の最新版を入れているが今のところ不便なところはない。
+最近リリースされた Debian 11 のイメージ`bullseye`の最新版を入れているが今のところ不便なところはない。
 
 一応、`build-essential`を入れることで対応できている。
 今後ブログをアップデートするうえで必要なパッケージも増えていくのでその際は当記事に追記していく予定。
 
-[[n | 追記]]
-| 初めにGatsbyのスターターを使うときはクローンするのでGitが必要。
-
 ### その他
 
 ちょっとした落とし穴がある。
-DockerからGatsbyサーバを起動させる際に`yarn develop`（`gatsby develop`）のみだとアクセスできない。
-localhostでアクセスした際に`ERR_EMPTY_RESPONSE`と表示されてしまう。
-これはホストマシンとコンテナのlocalhostが別のものと見做されたことで発生したエラーである。
+Docker から Gatsby サーバを起動させる際に`yarn develop`（`gatsby develop`）のみだとアクセスできない。
+localhost でアクセスした際に`ERR_EMPTY_RESPONSE`と表示されてしまう。
+これはホストマシンとコンテナの localhost が別のものと見做されたことで発生したエラーである。
 
 解決策としてサーバ起動時にホストを明示的に指定すれば解決する。
 
@@ -157,7 +146,7 @@ localhostでアクセスした際に`ERR_EMPTY_RESPONSE`と表示されてしま
 yarn develop -H 0.0.0.0
 ```
 
-`0.0.0.0`でサーバを建てると、そのホストの全てのインターフェースでLISTENする。
+`0.0.0.0`でサーバを建てると、そのホストの全てのインターフェースで LISTEN する。
 
 ただ、毎回このように書くのは面倒なので`package.json`の`scripts`を書き換えると良い。
 
@@ -174,13 +163,10 @@ yarn develop -H 0.0.0.0
   }
 ```
 
-[[i | 参考]]
-| [docker上のアプリにlocalhostでアクセスしたらERR\_EMPTY\_RESPONSEが出る](https://qiita.com/amuyikam/items/01a8c16e3ddbcc734a46)
-
 ## さいごに
 
 ### 心配している点
 
-* ~~node-sassだと動かないらしい~~
-  * CSS in JSで運用していくから問題なさそう
-* 画像をWebP化したときに何かしら問題が出そう（sharp関連）
+- ~~node-sass だと動かないらしい~~
+  - CSS in JS で運用していくから問題なさそう
+- 画像を WebP 化したときに何かしら問題が出そう（sharp 関連）

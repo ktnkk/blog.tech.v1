@@ -1,5 +1,5 @@
 ---
-title: "ktnkk.logのマークダウン取扱説明書"
+title: "ktnkk.log のマークダウン取扱説明書"
 date: "2021-10-13T23:36:44.284Z"
 category: "t"
 description: ""
@@ -8,11 +8,13 @@ slug: "7967644"
 published: true
 ---
 
+<!-- markdownlint-disable -->
+
 当ブログのマークダウン記法とそれに対応する表示をテストするために全て書き留めておく。機能追加していく中でデグレ起こす可能性があるので。
 
-実際はあまり使ってない記法もあるけど……。これを機に活用していきたい。
+実際はあまり使ってない記法もあるけど…。これを機に活用していきたい。
 
-***
+---
 
 ## Heading
 
@@ -31,7 +33,7 @@ published: true
 
 ##### Heading level 5
 
-***
+---
 
 ## List
 
@@ -46,12 +48,12 @@ published: true
   * (third item)
 ```
 
-* first item
-    * (first item)
-* second item
-    * (second item)
-* third item
-    * (third item)
+- first item
+  - (first item)
+- second item
+  - (second item)
+- third item
+  - (third item)
 
 ### ol
 
@@ -69,7 +71,7 @@ published: true
 4. fourth item
 5. fifth item
 
-***
+---
 
 ## Inline text
 
@@ -82,7 +84,7 @@ published: true
 <https://ktnkk.com/>
 ```
 
-*stress emphasis*
+_stress emphasis_
 
 **strong importance, seriousness, or urgency**
 
@@ -94,43 +96,39 @@ published: true
 
 <https://ktnkk.com/>
 
-***
+---
 
 ## Blockquotes
 
 ```markdown:title=Markdown
 > Work as intensely as you play and play as intensely as you work.
-> For true hackers, the boundaries between "play", "work", "science" and "art" all tend to disappear, or to merge into a high-level creative playfulness.
 > Also, don't be content with a narrow range of skills.
-> Though most hackers self-describe as programmers, they are very likely to be more than competent in several related skills — system administration, web design, and PC hardware troubleshooting are common ones.
 > A hacker who's a system administrator, on the other hand, is likely to be quite skilled at script programming and web design.
 > Hackers don't do things by halves; if they invest in a skill at all, they tend to get very good at it.
 ```
 
 > Work as intensely as you play and play as intensely as you work.
-> For true hackers, the boundaries between "play", "work", "science" and "art" all tend to disappear, or to merge into a high-level creative playfulness.
 > Also, don't be content with a narrow range of skills.
-> Though most hackers self-describe as programmers, they are very likely to be more than competent in several related skills — system administration, web design, and PC hardware troubleshooting are common ones.
 > A hacker who's a system administrator, on the other hand, is likely to be quite skilled at script programming and web design.
 > Hackers don't do things by halves; if they invest in a skill at all, they tend to get very good at it.
 
-***
+---
 
 ## Table
 
 ```markdown:title=Markdown
-| Countries | Capitals | Population | Language |
-| --- | --- | --- | --- |
-| USA | Washington, D.C. | 309 million | English |
-| Sweden | Stockholm | 9 million | Swedish |
+| Countries | Capitals         | Population  | Language |
+| --------- | ---------------- | ----------- | -------- |
+| USA       | Washington, D.C. | 309 million | English  |
+| Sweden    | Stockholm        | 9 million   | Swedish  |
 ```
 
-| Countries | Capitals | Population | Language |
-| --- | --- | --- | --- |
-| USA | Washington, D.C. | 309 million | English |
-| Sweden | Stockholm | 9 million | Swedish |
+| Countries | Capitals         | Population  | Language |
+| --------- | ---------------- | ----------- | -------- |
+| USA       | Washington, D.C. | 309 million | English  |
+| Sweden    | Stockholm        | 9 million   | Swedish  |
 
-***
+---
 
 ## Image
 
@@ -156,7 +154,7 @@ published: true
 [[imgS]]
 | ![🐿](01.jpg)
 
-***
+---
 
 ## Custom block
 
@@ -175,7 +173,7 @@ published: true
 | * Look around with alert eyes
 ```
 
-[[s | Simple ]]
+[[s | Simple]]
 | It's simple of you to be taken in by such a story.
 
 [[i | Info]]
@@ -184,9 +182,9 @@ published: true
 [[n | Notice]]
 | The act of taking no notice of something.
 
-[[a | Alert ]]
-| * The soldiers were on the alert
-| * Look around with alert eyes
+[[a | Alert]]
+| _The soldiers were on the alert
+|_ Look around with alert eyes
 
 ## Horizontal Rule
 
@@ -194,7 +192,7 @@ published: true
 ***
 ```
 
-***
+---
 
 ## YouTube
 
@@ -204,7 +202,7 @@ published: true
 
 `youtube:https://www.youtube.com/watch?v=jNQXAC9IVRw`
 
-***
+---
 
 ## Twitter
 
@@ -222,11 +220,11 @@ published: true
   <a href="https://twitter.com/jack/status/20?ref_src=twsrc%5Etfw">2006年3月21日</a>
 </blockquote>
 
-* data-lang: 表示する言語
-* data-theme: ライトモードかダークモード
-* `&mdash;`: フォントサイズのダッシュ
+- data-lang: 表示する言語
+- data-theme: ライトモードかダークモード
+- `&mdash;`: フォントサイズのダッシュ
 
-***
+---
 
 ## Code
 
@@ -350,7 +348,7 @@ root
   LABEL version="1.0.0"
 ```
 
-***
+---
 
 ## KaTeX
 
@@ -358,29 +356,37 @@ root
 
 ```markdown:title=Markdown
 $$
-i \hbar \dfrac{\partial}{\partial t} \psi(r,t) 
+i \hbar \dfrac{\partial}{\partial t} \psi(r,t)
 = \left(- \dfrac{\hbar^2}{2m} \nabla^2+ V(r,t) \right) \psi(r,t)
 $$
 ```
+
+<!-- textlint-disable ja-technical-writing/sentence-length -->
 
 $$
 i \hbar \dfrac{\partial}{\partial t} \psi(r,t)
 = \left(- \dfrac{\hbar^2}{2m} \nabla^2+ V(r,t) \right) \psi(r,t)
 $$
 
+<!-- textlint-enable -->
+
 ### Left-aligned
 
 ```markdown:title=Markdown
 $
-\rho \left\{\dfrac{\partial{\boldsymbol{v}}}{\partial{t}} + \left(\boldsymbol{v} \cdot \nabla \right) \boldsymbol{v}\right\} 
+\rho \left\{\dfrac{\partial{\boldsymbol{v}}}{\partial{t}} + \left(\boldsymbol{v} \cdot \nabla \right) \boldsymbol{v}\right\}
 = -\nabla p + \mu \nabla^2 \boldsymbol{v} + \rho \boldsymbol{f}
 $
 ```
+
+<!-- textlint-disable ja-technical-writing/sentence-length -->
 
 $
 \rho \left\{\dfrac{\partial{\boldsymbol{v}}}{\partial{t}} + \left(\boldsymbol{v} \cdot \nabla \right) \boldsymbol{v}\right\}
 = -\nabla p + \mu \nabla^2 \boldsymbol{v} + \rho \boldsymbol{f}
 $
+
+<!-- textlint-enable -->
 
 ### Inline
 
@@ -390,7 +396,7 @@ Let $\begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix}$ be the matrix in the text.
 
 Let $\begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix}$ be the matrix in the text.
 
-***
+---
 
 ## Graphviz
 
@@ -478,19 +484,21 @@ graph ER {
 
 ※ 言語は`dot`を指定（レンダリングされてしまうので上記で書けず）。
 
-***
+---
 
 ## あとがき
 
 基本的なマークダウンの記法通りで特に真新しさはない。
-違うところはカスタムブロックとコードブロック、KaTaX、Graphvizくらいかな。
+違うところはカスタムブロックとコードブロック、KaTaX、Graphviz くらいかな。
 
 マークダウンの良さは互換性の高さだと思っている。
 母艦が変わっても表示の一貫性が保たれているので、記録として残したい構造的な文章を書くのに打って付けだ。
 
 だが、そう考えるとマークダウンの機能を拡張していくことはそのメリットを打ち消す気がする。
-[MDX](https://mdxjs.com/)を使うことでマークダウン内にコンポーネントを書けるようにする方法もあるが、それはライブラリがReactであるから成り立つことでもある。
+[MDX](https://mdxjs.com/)を使うことでマークダウン内にコンポーネントを書けるようにする方法もあるが、それはライブラリが React であるから成り立つことでもある。
 
-今後は闇雲に機能を追加するのではなく、本当に必要な記法だけを厳選して追加したい。MDXを使うなら別のモジュールとして管理すればアリかな。
+今後は闇雲に機能を追加するのではなく、本当に必要な記法だけを厳選して追加したい。MDX を使うなら別のモジュールとして管理すればアリかな。
 
-あと、[Graphviz](https://graphviz.org/)面白いね。これ（DOT言語）をマスターすれば表を書くのにわざわざアプリを使わずに済むし、修正も容易だ。
+あと、[Graphviz](https://graphviz.org/)面白いね。これ（DOT 言語）をマスターすれば表を書くのにわざわざアプリを使わずに済むし、修正も容易だ。
+
+<!-- markdownlint-enable -->
