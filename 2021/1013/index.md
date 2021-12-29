@@ -40,12 +40,12 @@ published: true
 ### ul
 
 ```markdown:title=Markdown
-* first item
-  * (first item)
-* second item
-  * (second item)
-* third item
-  * (third item)
+- first item
+  - (first item)
+- second item
+  - (second item)
+- third item
+  - (third item)
 ```
 
 - first item
@@ -138,91 +138,13 @@ _stress emphasis_
 
 ![🐿](01.jpg)
 
-### Resize
-
-```markdown:title=Markdown
-[[imgM]]
-| ![🐿](01.jpg)
-
-[[imgS]]
-| ![🐿](01.jpg)
-```
-
-[[imgM]]
-| ![🐿](01.jpg)
-
-[[imgS]]
-| ![🐿](01.jpg)
-
 ---
-
-## Custom block
-
-```markdown:title=Markdown
-[[s | Simple ]]
-| It's simple of you to be taken in by such a story.
-
-[[i | Info]]
-| A lot of GNU/FSF software is provided with info files.
-
-[[n | Notice]]
-| The act of taking no notice of something.
-
-[[a | Alert ]]
-| * The soldiers were on the alert
-| * Look around with alert eyes
-```
-
-[[s | Simple]]
-| It's simple of you to be taken in by such a story.
-
-[[i | Info]]
-| A lot of GNU/FSF software is provided with info files.
-
-[[n | Notice]]
-| The act of taking no notice of something.
-
-[[a | Alert]]
-| _The soldiers were on the alert
-|_ Look around with alert eyes
 
 ## Horizontal Rule
 
 ```markdown:title=Markdown
 ***
 ```
-
----
-
-## YouTube
-
-```markdown:title=Markdown
-`youtube:https://www.youtube.com/watch?v=jNQXAC9IVRw`
-```
-
-`youtube:https://www.youtube.com/watch?v=jNQXAC9IVRw`
-
----
-
-## Twitter
-
-```markdown:title=Markdown
-<blockquote class="twitter-tweet" data-lang="ja" data-theme="dark">
-  <p lang="en" dir="ltr">just setting up my twttr</p>
-  &mdash; jack⚡️ (@jack)
-  <a href="https://twitter.com/jack/status/20?ref_src=twsrc%5Etfw">2006年3月21日</a>
-</blockquote>
-```
-
-<blockquote class="twitter-tweet" data-lang="ja" data-theme="dark">
-  <p lang="en" dir="ltr">just setting up my twttr</p>
-  &mdash; jack⚡️ (@jack)
-  <a href="https://twitter.com/jack/status/20?ref_src=twsrc%5Etfw">2006年3月21日</a>
-</blockquote>
-
-- data-lang: 表示する言語
-- data-theme: ライトモードかダークモード
-- `&mdash;`: フォントサイズのダッシュ
 
 ---
 
@@ -500,5 +422,16 @@ graph ER {
 今後は闇雲に機能を追加するのではなく、本当に必要な記法だけを厳選して追加したい。MDX を使うなら別のモジュールとして管理すればアリかな。
 
 あと、[Graphviz](https://graphviz.org/)面白いね。これ（DOT 言語）をマスターすれば表を書くのにわざわざアプリを使わずに済むし、修正も容易だ。
+
+## 20211229 追記
+
+- [gatsby-remark-embed-youtube](https://www.gatsbyjs.com/plugins/gatsby-remark-embed-youtube/)
+- [gatsby-plugin-twitter](https://www.gatsbyjs.org/packages/gatsby-plugin-twitter)
+- [gatsby-remark-custom-blocks](https://www.gatsbyjs.com/plugins/gatsby-remark-custom-blocks/)
+
+上記のプラグインを使った記法は廃止した。
+いずれも UI をリッチに描画する機能だがマークダウンが持つ汎用性を殺してしまう。
+それに textlint や markdownlint で引っかかるのが面倒だったのもある（そこだけ回避させるのは何か違う）。
+結局、そういった小道具に頼るのではなく分かりやすい文章を書いていこう。
 
 <!-- markdownlint-enable -->
