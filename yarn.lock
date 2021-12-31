@@ -1962,9 +1962,9 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30000844:
-  version "1.0.30001293"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001293.tgz#fb8b7f071a04e50fd1e759d23e3d65fbc9ae5ef3"
-  integrity sha512-A4I5fB8Kxo0p/H3aXlaOkBp9mD0GspKmXfWHXOzcl0iHLi07EEVJdJeQPT4Yv3/dffRnrwluYZyXvMjbr6WhIA==
+  version "1.0.30001294"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001294.tgz#4849f27b101fd59ddee3751598c663801032533d"
+  integrity sha512-LiMlrs1nSKZ8qkNhpUf5KD0Al1KCBE3zaT7OLOwEkagXMEDij98SiOovn9wxVGQpklk9vVC/pUSqgYmkmKOS8g==
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
