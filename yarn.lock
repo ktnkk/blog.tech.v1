@@ -2549,12 +2549,12 @@ core-util-is@~1.0.0:
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
 cosmiconfig-typescript-loader@^1.0.0:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-1.0.5.tgz#22373003194a1887bbccbdfd05a13501397109a8"
-  integrity sha512-FL/YR1nb8hyN0bAcP3MBaIoZravfZtVsN/RuPnoo6UVjqIrDxSNIpXHCGgJe0ZWy5yImpyD6jq5wCJ5f1nUv8g==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-1.0.6.tgz#6d879cece8063b15ec8a3258f55a8e94893c7cca"
+  integrity sha512-2nEotziYJWtNtoTjKbchj9QrdTT6DBxCvqjNKoDKARw+e2yZmTQCa07uRrykLIZuvSgp69YXLH89UHc0WhdMfQ==
   dependencies:
     cosmiconfig "^7"
-    ts-node "^10.5.0"
+    ts-node "^10.6.0"
 
 cosmiconfig@^7, cosmiconfig@^7.0.0:
   version "7.0.1"
@@ -9091,7 +9091,7 @@ try-resolve@^1.0.1:
   resolved "https://registry.yarnpkg.com/try-resolve/-/try-resolve-1.0.1.tgz#cfde6fabd72d63e5797cfaab873abbe8e700e912"
   integrity sha1-z95vq9ctY+V5fPqrhzq76OcA6RI=
 
-ts-node@^10.5.0:
+ts-node@^10.6.0:
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.6.0.tgz#c3f4195d5173ce3affdc8f2fd2e9a7ac8de5376a"
   integrity sha512-CJen6+dfOXolxudBQXnVjRVvYTmTWbyz7cn+xq2XTsvnaXbHqr4gXSCNbS2Jj8yTZMuGwUoBESLaOkLascVVvg==
