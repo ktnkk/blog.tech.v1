@@ -4855,9 +4855,9 @@ libnpmconfig@^1.2.1:
     ini "^1.3.5"
 
 libnpmdiff@*:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/libnpmdiff/-/libnpmdiff-4.0.0.tgz#be1e1031d23e650707d6702cb9e4c8295dabfe00"
-  integrity sha512-VXOQGwtcx4kOGOHIYasRi6m1a+FGTPLv0463DzkbNR5P7m4GGY9aXmWE95ZE2JkFy+VpWmHjS/62pDB6CxIcKw==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/libnpmdiff/-/libnpmdiff-4.0.1.tgz#929f1ae42739d4d9722ee6159f54778f4dd17faf"
+  integrity sha512-qZtpjH9R0RgWar3BfwkOWBIRsbtfNqcSAFWED0PzWIKp2d2qAEt4adGDpmnd4CKxujyqPrVHcqER3OqbqjqqFA==
   dependencies:
     "@npmcli/disparity-colors" "^1.0.1"
     "@npmcli/installed-package-contents" "^1.0.7"
