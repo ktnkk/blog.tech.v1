@@ -4930,9 +4930,9 @@ libnpmorg@^1.0.1:
     npm-registry-fetch "^4.0.0"
 
 libnpmpack@*:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/libnpmpack/-/libnpmpack-4.0.0.tgz#e67d9a0ee688d7b76ea8730be8ffb150ca8e55e5"
-  integrity sha512-5nz8xEJMFj+C9EtmgY00xwbRzOlUC4yNiTulLet5YUPNJL5euJ7aK0piUWEznfN2bPwghX+Jv8h+QNGTL3I8MA==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/libnpmpack/-/libnpmpack-4.0.1.tgz#c98111d92e440cd1fa18a0ab6384087df65947e4"
+  integrity sha512-Ozd/Hz3A+yrE3xhTc/bnoA0lnZb2HfQx0KP0sj6bXHe46hyCsmWCh8xuFXqtnH5FLwAhqI+kvd9HbV6DFACkFw==
   dependencies:
     "@npmcli/run-script" "^3.0.0"
     npm-package-arg "^9.0.0"
