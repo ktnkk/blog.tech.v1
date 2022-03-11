@@ -245,9 +245,9 @@
     fastq "^1.6.0"
 
 "@npmcli/arborist@*", "@npmcli/arborist@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@npmcli/arborist/-/arborist-5.0.1.tgz#ec7dc8be74fa30392373e2ef73ef42e04e92ac48"
-  integrity sha512-EY8oyKLihQJNDkqcSi+weL7naraSWNoTKY7rTGzd4roX4kdl1cMSLw1gZnCZzQd/JvT74M9mmvN45YqXAOp5Yg==
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@npmcli/arborist/-/arborist-5.0.2.tgz#6713c1be8f34668bf6032d7ff5789726156dbc99"
+  integrity sha512-QNfOdTCzglgiycfU1HRMWz02R6vP4DEwActG1YG9kyt8qO7EfQdvvVA7U/JTIgD5LrNDm2rQXkx5sGD5MsbiZw==
   dependencies:
     "@isaacs/string-locale-compare" "^1.1.0"
     "@npmcli/installed-package-contents" "^1.0.7"
@@ -349,13 +349,13 @@
     read-package-json-fast "^2.0.1"
 
 "@npmcli/map-workspaces@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@npmcli/map-workspaces/-/map-workspaces-2.0.1.tgz#da8b4d2e1f4cef30efcc81e425bd11a9bf5489f2"
-  integrity sha512-awwkB/tSWWaCD8F0IbawBdmoPFlbXMaEPN9LyTuJcyJz404/QhB4B/vhQntpk6uxOAkM+bxR7qWMJghYg0tcYQ==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@npmcli/map-workspaces/-/map-workspaces-2.0.2.tgz#dfc87ced615afeb98a081da2aa9bba072bf6712d"
+  integrity sha512-ED54EslGsHFWBPN5x8JAOszuWywuoXYSi9E3HQRsgVkWnqsdTBJDSM4IFMRwmmBUbCHAxmP3wGLu1WMm4fhrOw==
   dependencies:
     "@npmcli/name-from-folder" "^1.0.1"
     glob "^7.2.0"
-    minimatch "^5.0.0"
+    minimatch "^5.0.1"
     read-package-json-fast "^2.0.3"
 
 "@npmcli/metavuln-calculator@^3.0.0":
@@ -400,17 +400,7 @@
   dependencies:
     infer-owner "^1.0.4"
 
-"@npmcli/run-script@*":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@npmcli/run-script/-/run-script-3.0.0.tgz#c37752414fe06cffbc1279b340da8098d3f9f31a"
-  integrity sha512-jIdmUepw+kVP2WEE/+XrBIvrSF5miDutdGBrQ8May6uHVAvpAb0m3NRHcJ0lKWbQ1BxsRFsmTrjkdY99qTTVIw==
-  dependencies:
-    "@npmcli/node-gyp" "^1.0.3"
-    "@npmcli/promise-spawn" "^1.3.2"
-    node-gyp "^8.4.1"
-    read-package-json-fast "^2.0.3"
-
-"@npmcli/run-script@^3.0.0":
+"@npmcli/run-script@*", "@npmcli/run-script@^3.0.0":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@npmcli/run-script/-/run-script-3.0.1.tgz#9d10b46586300074cc9e53ef320130a69567e1ce"
   integrity sha512-o2fkld5hYwu9sKYzoXTpqEocMnDLaigobaPzLaGB63k/ExmLBTaB+KpfKlpcIePPnuP8RFR+0GDI4KopJCM6Xg==
@@ -3463,11 +3453,10 @@ function-bind@^1.1.1:
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
 gauge@^4.0.0:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/gauge/-/gauge-4.0.2.tgz#c3777652f542b6ef62797246e8c7caddecb32cc7"
-  integrity sha512-aSPRm2CvA9R8QyU5eXMFPd+cYkyxLsXHd2l5/FOH2V/eml//M04G6KZOmTap07O1PvEwNcl2NndyLfK8g3QrKA==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/gauge/-/gauge-4.0.3.tgz#286cf105c1962c659f0963058fb05116c1b82d3f"
+  integrity sha512-ICw1DhAwMtb22rYFwEHgJcx1JCwJGv3x6G0OQUq56Nge+H4Q8JEwr8iveS0XFlsUNSI67F5ffMGK25bK4Pmskw==
   dependencies:
-    ansi-regex "^5.0.1"
     aproba "^1.0.3 || ^2.0.0"
     color-support "^1.1.3"
     console-control-strings "^1.1.0"
@@ -4880,9 +4869,9 @@ libnpmdiff@*:
     tar "^6.1.0"
 
 libnpmexec@*:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/libnpmexec/-/libnpmexec-4.0.0.tgz#db0fcd2210f42578eca92110719cb3c757a14687"
-  integrity sha512-1aZ4ujSC3gJ/ADp2cwsQcb8zNlYO1QaA4jnELG3d1tuKLQkD4XX9IQNHH1Ac2DsvM7WZ5oHWjg9PUV0ceHNczQ==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/libnpmexec/-/libnpmexec-4.0.1.tgz#02755c03fd2566ed9d8857dfebf5183d0967a982"
+  integrity sha512-hax7tnZwx0RVoo4Ds0X9aItzGAibbbiOcxXox1OSCOOFeM56rRsCJh/Izog8/8X8/6kMaybWS5reDIC0oPxX7g==
   dependencies:
     "@npmcli/arborist" "^5.0.0"
     "@npmcli/ci-detect" "^2.0.0"
@@ -5801,7 +5790,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimatch@^5.0.0:
+minimatch@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-5.0.1.tgz#fb9022f7528125187c92bd9e9b6366be1cf3415b"
   integrity sha512-nLDxIFRyhDblz3qMuq+SoRZED4+miJ/G+tdDrjkkkRnjAsBexeGpgjLEQ0blJy7rHhR2b93rhQY4SvyWu9v03g==
@@ -6071,7 +6060,7 @@ node-fetch@^2.6.0, node-fetch@^2.6.1:
   dependencies:
     whatwg-url "^5.0.0"
 
-node-gyp@*, node-gyp@^8.4.1:
+node-gyp@*:
   version "8.4.1"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-8.4.1.tgz#3d49308fc31f768180957d6b5746845fbd429937"
   integrity sha512-olTJRgUtAb/hOXG0E93wZDs5YiJlgbXxTwQAFHyNlRsXQnYzUaF2aGgujZbw+hR8aF4ZG/rST57bWMWD16jr9w==
